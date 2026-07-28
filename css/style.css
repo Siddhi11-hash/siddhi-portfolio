@@ -5597,3 +5597,175 @@ button {
     .project-card, .featured-project, .skill-category, .quality-card,
     .achievement-card, .education-card { will-change: auto !important; }
 }
+
+
+
+
+/* =========================================================
+   FINAL MOBILE VIEW — <= 768px
+   Normal native scrolling, fixed viewport-safe sizing.
+   Desktop/tablet remain untouched.
+   ========================================================= */
+@media (max-width: 768px) {
+  :root {
+    --mobile-gutter: 16px;
+    --mobile-header-h: 64px;
+  }
+
+  html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip !important;
+    overflow-y: auto !important;
+    scroll-behavior: auto !important;
+    scroll-snap-type: none !important;
+    height: auto !important;
+  }
+
+  body {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0 !important;
+    height: auto !important;
+    min-height: 100dvh;
+    margin: 0 !important;
+    overflow-x: clip !important;
+    overflow-y: visible !important;
+    overscroll-behavior-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* No sticky/snap sections or sticky cards on mobile. */
+  main, section, .section, .section-inner, .container,
+  .hero, .about, .projects, .experience, .skills, .tech-stack,
+  .certifications, .contact, footer, .footer,
+  .project-card, .project-content, .project-media,
+  .bring-card, .value-card, .skill-card, .tech-card, .stack-card,
+  .cert-card, .certification-card {
+    position: relative;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto;
+    right: auto;
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
+  }
+
+  main, section, .section, .section-inner, .container,
+  .hero, .about, .projects, .experience, .skills, .tech-stack,
+  .certifications, .contact, footer, .footer {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  section, .section {
+    min-height: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Header is viewport-safe and does not distort while browser chrome changes height. */
+  header, .header, .navbar, nav {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  header, .header, .navbar {
+    min-height: var(--mobile-header-h);
+  }
+
+  .nav-container, .navbar-container, .header-inner, .nav-inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding-left: max(var(--mobile-gutter), env(safe-area-inset-left)) !important;
+    padding-right: max(var(--mobile-gutter), env(safe-area-inset-right)) !important;
+    box-sizing: border-box !important;
+  }
+
+  .nav-links, .navbar-links, .desktop-nav, .mobile-nav,
+  .nav-menu, .menu {
+    max-width: calc(100vw - (var(--mobile-gutter) * 2)) !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Every content block obeys the mobile viewport. */
+  .container, .section-inner, .hero-content, .hero-text, .hero-copy,
+  .hero-info, .hero-actions, .hero-buttons, .about-content,
+  .projects-grid, .project-card, .project-content, .project-info,
+  .project-media, .project-visual, .project-image, .project-image-wrap,
+  .project-screenshot, .project-screenshot-wrap, .skills-grid,
+  .tech-grid, .certifications-grid, .contact-content {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .container, .section-inner {
+    padding-left: var(--mobile-gutter) !important;
+    padding-right: var(--mobile-gutter) !important;
+  }
+
+  img, video, canvas, svg {
+    max-width: 100% !important;
+  }
+
+  .project-card img, .project-media img, .project-visual img,
+  .project-image img, .project-screenshot img {
+    width: 100%;
+    height: auto !important;
+    object-fit: cover;
+  }
+
+  h1, h2, h3, p, a, span {
+    overflow-wrap: break-word;
+  }
+
+  .hero-actions, .hero-buttons {
+    flex-wrap: wrap !important;
+  }
+
+  /* Footer stays in document flow and fills mobile width. */
+  footer, .footer {
+    margin-top: 0;
+    padding-left: max(var(--mobile-gutter), env(safe-area-inset-left)) !important;
+    padding-right: max(var(--mobile-gutter), env(safe-area-inset-right)) !important;
+    padding-bottom: max(20px, env(safe-area-inset-bottom)) !important;
+    transform: none !important;
+  }
+
+  /* Remove mobile pop/reveal motion only where previously requested. */
+  .bring-card, .value-card, .skill-card, .tech-card, .stack-card,
+  .cert-card, .certification-card {
+    animation: none !important;
+    transform: none !important;
+    transition-property: border-color, background-color, box-shadow !important;
+  }
+
+  /* Project card itself never flips/twitches from taps. Image flip remains scroll-driven JS. */
+  .project-card:active, .project-card:focus, .project-card:focus-within {
+    transform: none !important;
+  }
+
+  /* Decorative animation layers cannot affect layout or touch scrolling. */
+  .stars, .star-field, .stars-container, .shooting-stars,
+  .shooting-star-container, .orbit, .orbits, .orbit-container,
+  [class*="star"], [class*="orbit"] {
+    pointer-events: none !important;
+  }
+
+  /* Prevent oversized transforms/filters from expanding the mobile page. */
+  .project-card, .bring-card, .value-card, .skill-card,
+  .tech-card, .stack-card, .cert-card, .certification-card {
+    contain: layout paint;
+  }
+
+  section:not(:first-of-type) .scroll-indicator,
+  section:not(:first-of-type) .scroll-text {
+    display: none !important;
+  }
+}

@@ -737,3 +737,16 @@ if (window.matchMedia("(max-width: 768px)").matches) {
         projectFlipObserver.observe(scene);
     });
 }
+
+
+
+
+/* MOBILE PROJECT FLIP GUARD — scrolling controls flip; taps do not. */
+document.addEventListener('click', function (event) {
+  if (!window.matchMedia('(max-width: 768px)').matches) return;
+  const card = event.target.closest('.project-card');
+  if (!card) return;
+  if (!event.target.closest('a, button')) {
+    event.stopPropagation();
+  }
+}, true);
