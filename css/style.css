@@ -1841,18 +1841,16 @@ button {
 
     padding: 30px;
 
-    transition: 0.3s;
+    transition: none;
 
 }
 
 
 .stat-card:hover {
 
-    transform:
-        translateY(-5px);
+    transform: none;
 
-    border-color:
-        rgba(139, 92, 246, 0.5);
+    border-color: var(--border);
 
 }
 
@@ -5416,4 +5414,148 @@ button {
 .featured-project .flip-front > i,
 .featured-project .flip-front > span {
     z-index: 1;
+}
+
+
+/* =========================================================
+   MOBILE MOTION POLISH — quieter cards + lighter starfield
+   Desktop/tablet behavior is unchanged.
+   ========================================================= */
+@media (max-width: 768px) {
+    /* Remove decorative card/icon looping and bounce animations on phones. */
+    .stat-card,
+    .quality-card,
+    .skill-category,
+    .education-card,
+    .project-card,
+    .featured-project,
+    .quality-icon,
+    .education-icon {
+        animation: none !important;
+    }
+
+    /* Prevent hover-style movement from lingering on touch devices. */
+    .stat-card:hover,
+    .quality-card:hover,
+    .skill-category:hover,
+    .education-card:hover {
+        transform: none !important;
+        animation: none !important;
+    }
+}
+
+/* =========================================================
+   PROJECTS — SCREENSHOT FLIP ONLY
+   Keep the screenshot 3D flip; remove all other project motion.
+   ========================================================= */
+#projects .reveal,
+#projects .reveal.active {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+#projects .project-card,
+#projects .featured-project {
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
+}
+
+#projects .project-card:hover,
+#projects .featured-project:hover {
+    transform: none !important;
+}
+
+#projects .featured-project:hover .browser-window,
+#projects .project-card:hover .project-visual,
+#projects .featured-project:hover .project-visual {
+    transform: none !important;
+    transition: none !important;
+}
+
+#projects .project-icon,
+#projects .project-arrow {
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+#projects .project-card:hover .project-icon,
+#projects .project-card:hover .project-arrow {
+    transform: none !important;
+}
+
+#projects .card-live-link,
+#projects .project-github,
+#projects .more-projects-button,
+#projects .more-projects-button i {
+    transform: none !important;
+    transition: none !important;
+}
+
+#projects .card-live-link:hover,
+#projects .more-projects-button:hover,
+#projects .more-projects-button:hover i {
+    transform: none !important;
+}
+
+/* Explicitly preserve the only project animation: screenshot flip. */
+#projects .flip-inner {
+    transition: transform .65s cubic-bezier(.2,.75,.25,1) !important;
+    transform-style: preserve-3d !important;
+}
+
+/* =========================================================
+   FINAL MOTION RESTORE
+   Stars/shooting stars/orbits stay animated on every viewport.
+   About cards remain static; Projects keep screenshot flip only.
+   ========================================================= */
+.starfield {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.orbit-scene,
+.orbit-path,
+.orbit-icon,
+.orbit-core {
+    visibility: visible !important;
+}
+
+.path-one  { animation: orbitSpinCW 9s linear infinite !important; }
+.path-two  { animation: orbitSpinCCW 13s linear infinite !important; }
+.path-three{ animation: orbitSpinCW 18s linear infinite !important; }
+.path-four { animation: orbitSpinCCW 6.5s linear infinite !important; }
+.path-five { animation: orbitSpinCW 11s linear infinite !important; }
+.path-six  { animation: orbitSpinCCW 15.5s linear infinite !important; }
+.path-seven{ animation: orbitSpinCW 8s linear infinite !important; }
+.path-eight{ animation: orbitSpinCCW 22s linear infinite !important; }
+
+@media (max-width: 768px) {
+    .starfield { opacity: .82 !important; }
+    .orbit-path { animation-play-state: running !important; }
+}
+
+
+/* =========================================================
+   FINAL MOTION POLISH
+   Requested content cards render immediately without the
+   scroll-in/pop animation. Ambient stars, shooting stars,
+   orbit motion, and project screenshot flips remain active.
+   ========================================================= */
+.qualities-section .quality-card,
+#skills .skill-category,
+#achievements .achievement-card {
+    opacity: 1 !important;
+    animation: none !important;
+}
+
+@media (max-width: 768px) {
+    /* Slightly stronger star presence on phones without adding
+       expensive DOM effects; the canvas density is tuned in JS. */
+    .starfield {
+        opacity: .92 !important;
+    }
 }

@@ -24,7 +24,7 @@
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
 
-        const divisor = width <= 768 ? 42000 : 14000;
+        const divisor = width <= 768 ? 48000 : 14000;
         const count = Math.floor((width * height) / divisor);
 
         stars = Array.from({ length: count }, () => createStar());
@@ -39,7 +39,7 @@
             radius: Math.random() * 1.4 + 0.3,
             color: STAR_COLORS[Math.floor(Math.random() * STAR_COLORS.length)],
             baseAlpha: Math.random() * 0.6 + 0.3,
-            twinkleSpeed: Math.random() * 0.02 + 0.005,
+            twinkleSpeed: (Math.random() * 0.02 + 0.005) * (width <= 768 ? 0.55 : 1),
             twinklePhase: Math.random() * Math.PI * 2
         };
 
@@ -68,11 +68,13 @@
 
     function scheduleShootingStar() {
 
-        const delay = Math.random() * 4200 + 2200;
+        const delay = window.innerWidth <= 768
+            ? Math.random() * 6500 + 4500
+            : Math.random() * 4200 + 2200;
 
         setTimeout(() => {
 
-            if (window.innerWidth > 768 && !document.hidden) shootingStars.push(createShootingStar());
+            if (!document.hidden) shootingStars.push(createShootingStar());
 
             scheduleShootingStar();
 
@@ -92,7 +94,7 @@
 
             const alpha =
                 star.baseAlpha +
-                Math.sin(star.twinklePhase) * 0.35;
+                Math.sin(star.twinklePhase) * (width <= 768 ? 0.20 : 0.35);
 
             ctx.beginPath();
 
@@ -188,7 +190,7 @@ const revealElements =
     document.querySelectorAll(".reveal");
 
 const statNumbers =
-    document.querySelectorAll(".stat-number");
+    document.querySelectorAll(".stat-number:not(.stats-grid .stat-number)");
 
 const pageSections = document.querySelectorAll("section[id]");
 
@@ -615,7 +617,7 @@ if (
 
 const interactiveCards =
     document.querySelectorAll(
-        ".project-card, .quality-card, .stat-card, .featured-project"
+        ".quality-card"
     );
 
 
