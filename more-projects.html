@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="More projects by Siddhi Girkar — Software Developer specializing in full-stack development, AI/ML and data-driven applications."
+    >
+
+    <title>More Projects | Siddhi Girkar</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Cursor Glow -->
+    <div class="cursor-glow"></div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Starfield / Shooting Stars -->
+    <canvas class="starfield" id="starfield"></canvas>
+
+    <!-- Background Decoration -->
+    <div class="background-effects">
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="orb orb-three"></div>
+    </div>
+
+
+    <!-- =====================================================
+                         NAVBAR
+    ====================================================== -->
+
+    <header class="header">
+
+        <nav class="navbar container">
+
+            <a href="index.html#home" class="logo">
+                SG<span>.</span>
+            </a>
+
+            <div class="nav-links" id="navLinks">
+
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#skills" class="nav-link">Skills</a>
+                <a href="index.html#projects" class="nav-link">Projects</a>
+                <a href="index.html#experience" class="nav-link">Experience</a>
+                <a href="index.html#achievements" class="nav-link">Achievements</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+
+            </div>
+
+            <a
+                href="index.html#projects"
+                class="resume-nav"
+            >
+                <i class="fa-solid fa-arrow-left"></i>
+                Back to Portfolio
+            </a>
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                aria-label="Open navigation menu"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- =====================================================
+                          MORE PROJECTS
+        ====================================================== -->
+
+        <section class="section more-projects-page" id="more-projects">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <span class="section-number">
+                        +
+                    </span>
+
+                    <div>
+
+                        <p class="section-label">
+                            MORE PROJECTS
+                        </p>
+
+                        <h2>
+                            A few more
+                            <span class="gradient-text">
+                                things I've built.
+                            </span>
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="more-projects-grid">
+
+
+                    <article class="project-card reveal">
+
+                        <!--
+                            Add your app screenshot at
+                            assets/projects/doc-converter.png
+                            On hover, the poster flips over
+                            (3D flip) to reveal it.
+                        -->
+                        <div class="flip-scene">
+
+                            <div class="flip-inner">
+
+                                <div class="flip-face flip-front flip-front-docs">
+
+                                    <i class="fa-solid fa-file-export"></i>
+
+                                    <span>
+                                        Converter
+                                    </span>
+
+                                </div>
+
+                                <div class="flip-face flip-back">
+
+                                    <div class="flip-back-hint">
+                                        <i class="fa-solid fa-image"></i>
+                                        <span>Add screenshot</span>
+                                    </div>
+
+                                    <img
+                                        src="assets/projects/doc-converter.png"
+                                        alt="Multi-Format Document Converter screenshot"
+                                        onload="this.closest('.flip-scene').classList.add('has-image')"
+                                        onerror="this.remove()"
+                                    >
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-card-top">
+
+                            <div class="project-icon">
+
+                                <i class="fa-solid fa-file-export"></i>
+
+                            </div>
+
+                            <i class="fa-solid fa-arrow-up-right-from-square project-arrow"></i>
+
+                        </div>
+
+
+                        <span class="project-type">
+                            PYTHON AUTOMATION
+                        </span>
+
+
+                        <h3>
+                            Multi-Format Document Converter
+                        </h3>
+
+
+                        <p>
+
+                            A Python-based document processing tool
+                            designed to convert scanned content into
+                            multiple usable document formats.
+
+                        </p>
+
+                        <span class="card-impact">
+                            <i class="fa-solid fa-bolt"></i>
+                            Automated a manual, repetitive file-conversion
+                            task end to end
+                        </span>
+
+
+                        <div class="project-tech">
+
+                            <span>Python</span>
+                            <span>Automation</span>
+                            <span>File Processing</span>
+
+                        </div>
+
+
+                        <div class="project-links card-links">
+
+                            <a
+                                href="#"
+                                target="_blank"
+                                class="card-live-link"
+                            >
+                                Live Link
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+
+                            <a
+                                href="https://github.com/Siddhi11-hash"
+                                target="_blank"
+                                class="project-github"
+                            >
+                                <i class="fa-brands fa-github"></i>
+                                Code
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <div class="more-projects-cta reveal">
+
+                    <a href="index.html#projects" class="more-projects-button">
+
+                        <i class="fa-solid fa-arrow-left"></i>
+
+                        <span>Back to Main Projects</span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+                              FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <div class="container footer-content">
+
+            <p>
+                Designed & built by Siddhi Girkar
+            </p>
+
+            <p>
+                © 2026
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Back To Top -->
+
+    <button
+        class="back-to-top"
+        id="backToTop"
+        aria-label="Back to top"
+    >
+
+        <i class="fa-solid fa-arrow-up"></i>
+
+    </button>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

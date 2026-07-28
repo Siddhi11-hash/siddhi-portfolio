@@ -1,0 +1,121 @@
+# ============================================================
+# Portfolio .gitignore
+# ============================================================
+
+# ----------------------------
+# Dependencies
+# ----------------------------
+node_modules/
+
+# ----------------------------
+# Environment variables / secrets
+# ----------------------------
+.env
+.env.*
+!.env.example
+
+# ----------------------------
+# Build / generated output
+# ----------------------------
+dist/
+build/
+out/
+.next/
+.cache/
+.parcel-cache/
+
+# ----------------------------
+# Logs
+# ----------------------------
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ----------------------------
+# Package manager caches
+# ----------------------------
+.npm/
+.pnpm-store/
+.yarn/cache/
+.yarn/unplugged/
+
+# ----------------------------
+# Testing / coverage
+# ----------------------------
+coverage/
+.nyc_output/
+
+# ----------------------------
+# IDE / editors
+# ----------------------------
+.vscode/
+.idea/
+*.code-workspace
+*.swp
+*.swo
+
+# ----------------------------
+# Operating system files
+# ----------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+
+# ----------------------------
+# Temporary / backup files
+# ----------------------------
+*.tmp
+*.temp
+*.bak
+*.old
+*.orig
+*~
+
+# ----------------------------
+# Deployment platform metadata
+# ----------------------------
+.vercel/
+.netlify/
+
+# ----------------------------
+# Python (if scripts are added)
+# ----------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# ----------------------------
+# Local-only files
+# ----------------------------
+*.local
+
+# ----------------------------
+# Archives / generated packages
+# ----------------------------
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+# ============================================================
+# IMPORTANT:
+# Portfolio source files are intentionally NOT ignored.
+#
+# Keep these tracked in Git:
+# index.html
+# css/
+# js/
+# assets/
+# assets/projects/
+# assets/Siddhi_Girkar_Resume.pdf
+# ============================================================

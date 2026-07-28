@@ -1,0 +1,5419 @@
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+
+    --bg: #030308;
+    --bg-soft: #06080f;
+    --card: rgba(12, 15, 26, 0.72);
+
+    --text: #f7f7fb;
+    --text-muted: #9999aa;
+
+    --purple: #8b5cf6;
+    --purple-light: #a78bfa;
+
+    --cyan: #22d3ee;
+    --pink: #ec4899;
+    --navy: #070a14;
+    --star-blue: #7dd3fc;
+
+    --border: rgba(255, 255, 255, 0.09);
+
+    --gradient:
+        linear-gradient(
+            135deg,
+            #8b5cf6,
+            #22d3ee
+        );
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    font-family: "DM Sans", sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(139, 92, 246, 0.08),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 60%,
+            rgba(34, 211, 238, 0.05),
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            #030308 0%,
+            #05070f 45%,
+            #070a14 100%
+        );
+
+    color: var(--text);
+
+    line-height: 1.7;
+
+    overflow-x: hidden;
+
+}
+
+
+a {
+
+    text-decoration: none;
+    color: inherit;
+
+}
+
+
+button {
+
+    border: none;
+    cursor: pointer;
+
+}
+
+
+.container {
+
+    width: min(1180px, calc(100% - 40px));
+
+    margin-inline: auto;
+
+}
+
+
+.section {
+
+    padding: 120px 0;
+
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+
+    width: 8px;
+
+}
+
+
+::-webkit-scrollbar-track {
+
+    background: var(--bg);
+
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    background: #333342;
+
+    border-radius: 20px;
+
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: var(--purple);
+
+}
+
+
+/* =========================================================
+   CURSOR GLOW
+========================================================= */
+
+.cursor-glow {
+
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(139, 92, 246, 0.08),
+            transparent 65%
+        );
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+
+    z-index: -1;
+
+}
+
+
+/* =========================================================
+   BACKGROUND ORBS
+========================================================= */
+
+.background-effects {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: -2;
+
+}
+
+
+.orb {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    opacity: 0.10;
+
+    animation: floatOrb 15s ease-in-out infinite alternate;
+
+}
+
+
+.orb-one {
+
+    width: 450px;
+    height: 450px;
+
+    background: var(--purple);
+
+    top: 5%;
+    left: -200px;
+
+}
+
+
+.orb-two {
+
+    width: 400px;
+    height: 400px;
+
+    background: var(--cyan);
+
+    top: 45%;
+    right: -180px;
+
+    animation-delay: -5s;
+
+}
+
+
+.orb-three {
+
+    width: 350px;
+    height: 350px;
+
+    background: #2563eb;
+
+    bottom: -150px;
+    left: 35%;
+
+    animation-delay: -8s;
+
+}
+
+
+@keyframes floatOrb {
+
+    from {
+
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+
+    }
+
+    to {
+
+        transform:
+            translate3d(70px, 40px, 0)
+            scale(1.15);
+
+    }
+
+}
+
+
+/* =========================================================
+   STARFIELD (stars + shooting stars)
+========================================================= */
+
+.starfield {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: -3;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at 50% -10%,
+            #070d1c 0%,
+            #030308 55%,
+            #010102 100%
+        );
+
+}
+
+
+/* =========================================================
+   SCROLL PROGRESS
+========================================================= */
+
+.scroll-progress {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 0%;
+    height: 3px;
+
+    background: var(--gradient);
+
+    z-index: 9999;
+
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.header {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    background:
+        rgba(5, 6, 13, 0.6);
+
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+
+    border-bottom:
+        1px solid transparent;
+
+    transition: 0.35s ease;
+
+}
+
+
+.header::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background: var(--gradient);
+
+    opacity: 0;
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: 0.5s ease;
+
+}
+
+
+.header.scrolled {
+
+    background:
+        rgba(5, 6, 13, 0.85);
+
+    border-color:
+        var(--border);
+
+    box-shadow:
+        0 10px 40px
+        rgba(0, 0, 0, 0.35);
+
+}
+
+
+.header.scrolled::after {
+
+    opacity: 1;
+
+    transform: scaleX(1);
+
+}
+
+
+.navbar {
+
+    height: 76px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.logo {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 26px;
+
+    font-weight: 700;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    letter-spacing: 0.5px;
+
+}
+
+
+.logo::before {
+
+    content: "";
+
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: var(--gradient);
+
+    box-shadow:
+        0 0 10px rgba(139, 92, 246, 0.9),
+        0 0 20px rgba(34, 211, 238, 0.5);
+
+    animation: logoPulse 2.4s ease-in-out infinite;
+
+}
+
+
+@keyframes logoPulse {
+
+    0%, 100% {
+
+        transform: scale(1);
+
+        opacity: 1;
+
+    }
+
+    50% {
+
+        transform: scale(1.35);
+
+        opacity: 0.7;
+
+    }
+
+}
+
+
+.logo span {
+
+    color: var(--purple);
+
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    gap: 35px;
+
+}
+
+
+.nav-link {
+
+    color: var(--text-muted);
+
+    font-size: 14px;
+
+    transition: 0.3s;
+
+    position: relative;
+
+    padding: 6px 2px;
+
+}
+
+
+.nav-link:hover,
+.nav-link.active {
+
+    color: white;
+
+}
+
+
+.nav-link.active {
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(139, 92, 246, 0.16),
+            rgba(34, 211, 238, 0.10)
+        );
+
+    padding: 6px 12px;
+
+    border-radius: 50px;
+
+}
+
+
+.nav-link::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--gradient);
+
+    transition: width 0.3s;
+
+}
+
+
+.nav-link:hover::after,
+.nav-link.active::after {
+
+    width: 100%;
+
+}
+
+
+.resume-nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        10px 18px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 50px;
+
+    font-size: 13px;
+
+    transition: 0.3s;
+
+}
+
+
+.resume-nav:hover {
+
+    border-color:
+        var(--purple);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 8px 24px
+        rgba(139, 92, 246, 0.25);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(139, 92, 246, 0.12),
+            rgba(34, 211, 238, 0.08)
+        );
+
+}
+
+
+.menu-button {
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    background: none;
+
+    border: none;
+
+    color: white;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    position: relative;
+
+    padding-top: 130px;
+
+}
+
+
+.hero-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.1fr 0.9fr;
+
+    gap: 80px;
+
+    align-items: center;
+
+}
+
+
+.availability {
+
+    width: fit-content;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding:
+        8px 14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 50px;
+
+    font-size: 12px;
+
+    color: #c7c7d2;
+
+    margin-bottom: 30px;
+
+}
+
+
+.status-dot {
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #34d399;
+
+    box-shadow:
+        0 0 12px #34d399;
+
+    animation:
+        statusPulse 2s infinite;
+
+}
+
+
+@keyframes statusPulse {
+
+    50% {
+
+        opacity: 0.4;
+
+    }
+
+}
+
+
+.hero-intro {
+
+    font-size: 13px;
+
+    letter-spacing: 4px;
+
+    color: var(--purple-light);
+
+    font-weight: 600;
+
+}
+
+
+.hero-title {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        clamp(
+            60px,
+            8vw,
+            105px
+        );
+
+    line-height: 0.95;
+
+    letter-spacing: -6px;
+
+    margin:
+        15px 0 30px;
+
+}
+
+
+.gradient-text {
+
+    background: var(--gradient);
+
+    background-size: 200% auto;
+
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+    animation:
+        gradientShift
+        5s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes gradientShift {
+
+    0%, 100% {
+
+        background-position: 0% 50%;
+
+    }
+
+    50% {
+
+        background-position: 100% 50%;
+
+    }
+
+}
+
+
+.hero-role {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    font-size: 17px;
+
+    font-weight: 500;
+
+}
+
+
+.hero-role span:not(.role-divider) {
+
+    animation:
+        roleGlow
+        3.6s
+        ease-in-out
+        infinite;
+
+}
+
+
+.hero-role span:nth-child(3) {
+
+    animation-delay: 1.2s;
+
+}
+
+
+.hero-role span:nth-child(5) {
+
+    animation-delay: 2.4s;
+
+}
+
+
+@keyframes roleGlow {
+
+    0%, 100% {
+
+        color: var(--text);
+
+        text-shadow: none;
+
+    }
+
+    50% {
+
+        color: var(--purple-light);
+
+        text-shadow:
+            0 0 14px rgba(139, 92, 246, 0.55);
+
+    }
+
+}
+
+
+.role-divider {
+
+    color: var(--purple);
+
+    display: inline-block;
+
+    animation:
+        dividerPulse
+        1.8s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes dividerPulse {
+
+    0%, 100% {
+
+        transform: scale(1);
+
+        opacity: 0.55;
+
+    }
+
+    50% {
+
+        transform: scale(1.5);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+.hero-description {
+
+    max-width: 650px;
+
+    color: var(--text-muted);
+
+    font-size: 17px;
+
+    margin-top: 25px;
+
+}
+
+
+.hero-buttons {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-top: 35px;
+
+}
+
+
+.primary-button,
+.secondary-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding:
+        14px 23px;
+
+    border-radius: 50px;
+
+    font-weight: 600;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+
+}
+
+
+.primary-button {
+
+    background: var(--gradient);
+
+    color: white;
+
+}
+
+
+.primary-button:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 15px 40px
+        rgba(139, 92, 246, 0.25);
+
+}
+
+
+.secondary-button {
+
+    border:
+        1px solid var(--border);
+
+}
+
+
+.secondary-button:hover {
+
+    border-color:
+        var(--purple);
+
+    transform:
+        translateY(-4px);
+
+}
+
+
+.hero-socials {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 35px;
+
+}
+
+
+.hero-socials a {
+
+    width: 42px;
+    height: 42px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    color: var(--text-muted);
+
+    transition: 0.3s;
+
+}
+
+
+.hero-socials a:hover {
+
+    color: white;
+
+    border-color:
+        var(--purple);
+
+    transform:
+        translateY(-4px);
+
+}
+
+
+/* =========================================================
+   CODE CARD
+========================================================= */
+
+.hero-visual {
+
+    position: relative;
+
+}
+
+
+.visual-glow {
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    background:
+        rgba(139, 92, 246, 0.18);
+
+    filter: blur(100px);
+
+    top: 50%;
+
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+}
+
+
+.orbit-scene{
+    position:absolute;
+
+    width:320px;
+    height:320px;
+
+    top:100px;
+    right:-90px;
+
+    opacity:.45;
+
+    z-index:1;
+    pointer-events:none;
+}
+
+
+.orbit-core {
+
+    position: absolute;
+    justify-self: center;
+
+    top: 50%;
+    left: 50%;
+
+    width: 40px;
+    height: 40px;
+
+    transform: translate(-50%, -50%);
+
+    display: grid;
+
+    place-items: center;
+
+    font-size:  10px;
+
+    color: white;
+
+    border-radius: 50%;
+
+    background: var(--gradient);
+
+    box-shadow:
+        0 0 40px rgba(139, 92, 246, 0.55),
+        0 0 80px rgba(34, 211, 238, 0.25);
+
+    animation:
+        corePulse
+        3.2s
+        ease-in-out
+        infinite;
+
+    z-index: 2;
+
+}
+
+
+@keyframes corePulse {
+
+    0%, 100% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+
+    }
+
+    50% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.08);
+
+    }
+
+}
+
+
+.orbit-path {
+
+    position: absolute;
+
+    inset: 0;
+
+    border: 1px dashed rgba(255, 255, 255, 0.14);
+
+    border-radius: 50%;
+
+}
+
+
+.path-one {
+
+    inset: 10%;
+
+    border-color: rgba(139, 92, 246, 0.3);
+
+    animation: orbitSpinCW 9s linear infinite;
+
+}
+
+
+.path-two {
+
+    inset: 22%;
+
+    border-color: rgba(34, 211, 238, 0.28);
+
+    animation: orbitSpinCCW 13s linear infinite;
+
+}
+
+
+.path-three {
+
+    inset: -4%;
+
+    border-color: rgba(236, 72, 153, 0.22);
+
+    animation: orbitSpinCW 18s linear infinite;
+
+}
+
+
+.path-four {
+
+    inset: 35%;
+
+    border-color: rgba(125, 211, 252, 0.3);
+
+    animation: orbitSpinCCW 6.5s linear infinite;
+
+}
+
+
+@keyframes orbitSpinCW {
+
+    from {
+
+        transform: rotate(0deg);
+
+    }
+
+    to {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+
+@keyframes orbitSpinCCW {
+
+    from {
+
+        transform: rotate(0deg);
+
+    }
+
+    to {
+
+        transform: rotate(-360deg);
+
+    }
+
+}
+
+
+/* Orbit decorations scattered across sections (About, Qualities,
+   Skills, Experience, Achievements). These are real flex siblings
+   inside the heading row (not absolutely-positioned overlays), so
+   they always reserve their own space next to the heading text and
+   can never sit on top of it - at any screen width. They shrink
+   responsively via clamp() instead of being hidden on mobile.
+   The hero orbit (first) and the contact orbit (last) are handled
+   separately below and keep their original position/anchor. */
+.orbit-heading {
+
+    position: relative;
+
+    z-index: 1;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    row-gap: 18px;
+
+}
+
+
+.orbit-heading .heading-text {
+
+    position: relative;
+
+    z-index: 3;
+
+    flex: 1 1 260px;
+
+    min-width: 0;
+
+}
+
+
+.orbit-scene-secondary,
+.orbit-scene-about,
+.orbit-scene-qualities,
+.orbit-scene-experience,
+.orbit-scene-achievements {
+
+    position: relative;
+
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    transform: none;
+
+    flex-shrink: 0;
+
+    margin: 0;
+
+    z-index: 1;
+
+    filter: drop-shadow(0 0 16px rgba(139, 92, 246, 0.2));
+
+}
+
+
+/* LEFT side placements - order:-1 pulls them before the number badge */
+
+.orbit-scene-about {
+
+    order: -1;
+
+    width: clamp(90px, 20vw, 210px);
+    height: clamp(90px, 20vw, 210px);
+
+    opacity: .55;
+
+}
+
+
+.orbit-scene-secondary {
+
+    order: -1;
+
+    width: clamp(100px, 24vw, 260px);
+    height: clamp(100px, 24vw, 260px);
+
+    opacity: .6;
+
+}
+
+
+.orbit-scene-achievements {
+
+    order: -1;
+
+    width: clamp(85px, 18vw, 190px);
+    height: clamp(85px, 18vw, 190px);
+
+    opacity: .55;
+
+}
+
+
+/* RIGHT side placements - natural (trailing) order, no override needed */
+
+.orbit-scene-qualities {
+
+    width: clamp(85px, 18vw, 190px);
+    height: clamp(85px, 18vw, 190px);
+
+    opacity: .55;
+
+}
+
+
+.orbit-scene-experience {
+
+    width: clamp(85px, 18vw, 190px);
+    height: clamp(85px, 18vw, 190px);
+
+    opacity: .55;
+
+}
+
+
+/* The contact orbit (last orbit) keeps its original absolute
+   position/anchor untouched - it just shrinks on small screens
+   instead of disappearing. See the dedicated media query below. */
+.orbit-scene-contact {
+
+    top: 6%;
+    right: 4%;
+    left: auto;
+    bottom: auto;
+
+    width: 200px;
+    height: 200px;
+
+    opacity: .5;
+
+    z-index: 1;
+
+    filter: drop-shadow(0 0 16px rgba(139, 92, 246, 0.2));
+
+}
+
+
+.orbit-core-mini {
+
+    width: 36px;
+    height: 36px;
+
+    font-size: 10px;
+
+}
+
+
+.path-five {
+
+    inset: 10%;
+
+    border-color: rgba(52, 211, 153, 0.4);
+
+    animation: orbitSpinCW 11s linear infinite;
+
+}
+
+
+.path-six {
+
+    inset: 20%;
+
+    border-color: rgba(250, 204, 21, 0.36);
+
+    animation: orbitSpinCCW 15.5s linear infinite;
+
+}
+
+
+.path-seven {
+
+    inset: 30%;
+
+    border-color: rgba(99, 102, 241, 0.34);
+
+    animation: orbitSpinCW 8s linear infinite;
+
+}
+
+
+.path-eight {
+
+    inset: 0%;
+
+    border-color: rgba(236, 72, 153, 0.3);
+
+    animation: orbitSpinCCW 22s linear infinite;
+
+}
+
+
+.path-five .orbit-icon {
+
+    animation: counterSpinCCW 11s linear infinite;
+
+}
+
+
+.path-six .orbit-icon {
+
+    animation: counterSpinCW 15.5s linear infinite;
+
+}
+
+
+.path-seven .orbit-icon {
+
+    animation: counterSpinCCW 8s linear infinite;
+
+}
+
+
+.path-eight .orbit-icon {
+
+    animation: counterSpinCW 22s linear infinite;
+
+}
+
+
+/* lastContact orbit (last orbit) - same corner anchor as always, just
+   scaled down so it stays visible instead of vanishing on mobile */
+@media (max-width: 1000px) {
+
+    .orbit-scene-contact {
+
+        width: 220px;
+        height: 220px;
+
+        top: 0%;
+        right: 3%;
+
+        opacity: .35;
+
+    }
+
+}
+@media (max-width: 1000px) {
+
+    .orbit-scene-contact {
+
+        width: 200px;
+        height: 200px;
+
+    }
+
+}
+
+
+/* Keep real skill cards painting above the decorative orbit no
+   matter how the stacking context resolves */
+.skill-category {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.orbit-icon {
+
+    position: absolute;
+
+    top: -15px;
+    left: 50%;
+
+    width: 34px;
+    height: 34px;
+
+    transform: translateX(-50%);
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: rgba(15, 19, 32, 0.92);
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+
+    color: var(--purple-light);
+
+    font-size: 14px;
+
+    box-shadow:
+        0 4px 14px rgba(0, 0, 0, 0.4);
+
+}
+
+
+.path-one .orbit-icon {
+
+    animation: counterSpinCCW 9s linear infinite;
+
+}
+
+
+.path-two .orbit-icon {
+
+    animation: counterSpinCW 13s linear infinite;
+
+}
+
+
+.path-three .orbit-icon {
+
+    animation: counterSpinCCW 18s linear infinite;
+
+}
+
+
+.path-four .orbit-icon {
+
+    animation: counterSpinCW 6.5s linear infinite;
+
+}
+
+
+@keyframes counterSpinCW {
+
+    from {
+
+        transform:
+            translateX(-50%)
+            rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            translateX(-50%)
+            rotate(360deg);
+
+    }
+
+}
+
+
+@keyframes counterSpinCCW {
+
+    from {
+
+        transform:
+            translateX(-50%)
+            rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            translateX(-50%)
+            rotate(-360deg);
+
+    }
+
+}
+
+
+/* =========================================================
+   FLOATING BADGES
+========================================================= */
+
+.floating-badge {
+
+    position: absolute;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    background:
+        rgba(20, 20, 30, 0.92);
+
+    border:
+        1px solid var(--border);
+
+    padding:
+        10px 15px;
+
+    border-radius: 50px;
+
+    font-size: 12px;
+
+    backdrop-filter:
+        blur(12px);
+
+    animation:
+        badgeFloat
+        5s
+        ease-in-out
+        infinite;
+
+    transition: transform 0.3s, box-shadow 0.3s;
+
+}
+
+
+.badge-one {
+
+    top: -25px;
+
+    right: -25px;
+
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.3);
+
+    border-color: rgba(139, 92, 246, 0.3);
+
+}
+
+
+.badge-two {
+
+    left: -40px;
+
+    bottom: 220px;
+
+    animation-delay: -2s;
+
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.2);
+
+    border-color: rgba(34, 211, 238, 0.2);
+
+}
+
+
+.badge-three {
+
+    right: -35px;
+
+    bottom: 15px;
+
+    animation-delay: -3s;
+
+    box-shadow: 0 0 20px rgba(236, 72, 153, 0.2);
+
+    border-color: rgba(236, 72, 153, 0.2);
+
+}
+
+
+@keyframes badgeFloat {
+
+    50% {
+
+        transform:
+            translateY(-10px);
+
+    }
+
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.section-heading {
+
+    display: flex;
+
+    gap: 25px;
+
+    margin-bottom: 65px;
+
+}
+
+
+.section-number {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    color: var(--purple);
+
+    font-size: 14px;
+
+    padding-top: 8px;
+
+    display: inline-block;
+
+    animation:
+        numberFloat
+        3.5s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes numberFloat {
+
+    0%, 100% {
+
+        transform: translateY(0);
+
+        opacity: 0.75;
+
+    }
+
+    50% {
+
+        transform: translateY(-4px);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+.section-label {
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    color: var(--purple-light);
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+
+}
+
+
+.section-heading h2 {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        clamp(
+            35px,
+            5vw,
+            55px
+        );
+
+    line-height: 1.15;
+
+    letter-spacing: -2px;
+
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 80px;
+
+}
+
+
+.about-content p {
+
+    color: var(--text-muted);
+
+    margin-bottom: 20px;
+
+}
+
+
+.about-content
+.about-lead {
+
+    font-size: 23px;
+
+    color: white;
+
+    line-height: 1.5;
+
+}
+
+
+.stats-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
+
+}
+
+
+.stat-card {
+
+    background: var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    transition: 0.3s;
+
+}
+
+
+.stat-card:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(139, 92, 246, 0.5);
+
+}
+
+
+.stat-number,
+.stat-plus {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 45px;
+
+    font-weight: 700;
+
+}
+
+
+.stat-plus {
+
+    color: var(--purple);
+
+}
+
+
+.stat-card p {
+
+    color: var(--text-muted);
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================================
+   QUALITIES
+========================================================= */
+
+.qualities-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+
+}
+
+
+.quality-card{
+    position: relative;
+    overflow: hidden;
+
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 30px;
+
+    transition:
+        transform 0.35s cubic-bezier(.175,.885,.32,1.6),
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.quality-card:hover {
+    animation: cardBounce 0.45s cubic-bezier(.34,1.56,.64,1) forwards;
+}
+
+@keyframes cardBounce {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-18px) scale(1.05);
+    }
+    70% {
+        transform: translateY(-12px) scale(1.03);
+    }
+    100% {
+        transform: translateY(-15px) scale(1.04);
+    }
+}
+
+
+.quality-icon {
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(139, 92, 246, 0.12);
+
+    color: var(--purple-light);
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 20px;
+
+    margin-bottom: 25px;
+
+    animation:
+        iconFloat
+        4s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes iconFloat {
+
+    0%, 100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-6px);
+
+    }
+
+}
+
+
+.qualities-grid .quality-card:nth-child(2) .quality-icon {
+
+    animation-delay: 0.6s;
+
+}
+
+
+.qualities-grid .quality-card:nth-child(3) .quality-icon {
+
+    animation-delay: 1.2s;
+
+}
+
+
+.qualities-grid .quality-card:nth-child(4) .quality-icon {
+
+    animation-delay: 1.8s;
+
+}
+
+
+.quality-card h3 {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 19px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.quality-card p {
+
+    color: var(--text-muted);
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills-container {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.skill-category {
+
+    padding: 30px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 20px;
+
+    background: var(--card);
+
+}
+
+
+.skill-category h3 {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    margin-bottom: 25px;
+
+}
+
+.skill-category:hover {
+    animation: skillCardBounce 0.45s cubic-bezier(.34,1.56,.64,1) forwards;
+}
+
+@keyframes skillCardBounce {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-18px) scale(1.05);
+    }
+    70% {
+        transform: translateY(-12px) scale(1.03);
+    }
+    100% {
+        transform: translateY(-15px) scale(1.04);
+    }
+}
+
+.skill-list {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+}
+
+
+.skill-list span {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        9px 14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 50px;
+
+    color: var(--text-muted);
+
+    font-size: 13px;
+
+    transition: 0.3s;
+
+}
+
+
+.skill-list span:hover {
+
+    color: white;
+
+    border-color:
+        var(--purple);
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+/* =========================================================
+   FEATURED PROJECT
+========================================================= */
+
+.featured-project {
+
+    display: grid;
+
+    grid-template-columns:
+        1.1fr 0.9fr;
+
+    gap: 50px;
+
+    align-items: center;
+
+    padding: 35px;
+
+    background: var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 30px;
+
+    margin-bottom: 30px;
+
+}
+
+.featured-project:hover{
+    transform: translateY(-10px);
+
+    border-color: rgba(139,92,246,.5);
+}
+
+.featured-project:hover .browser-window{
+    transform: scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,.4);
+}
+
+.tilt-card {
+
+    transform-style: preserve-3d;
+
+    will-change: transform;
+
+}
+
+.reveal {
+
+    opacity: 0;
+
+    transform: translateY(32px);
+
+    transition:
+        opacity 0.75s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+
+.reveal.active {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+
+/* Stagger delays via data-delay attribute */
+[data-delay="0"]   { transition-delay: 0ms;   }
+[data-delay="100"] { transition-delay: 100ms; }
+[data-delay="150"] { transition-delay: 150ms; }
+[data-delay="200"] { transition-delay: 200ms; }
+[data-delay="300"] { transition-delay: 300ms; }
+[data-delay="400"] { transition-delay: 400ms; }
+[data-delay="500"] { transition-delay: 500ms; }
+[data-delay="600"] { transition-delay: 600ms; }
+
+
+.browser-window {
+
+    background: #0a0a10;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+}
+
+
+.browser-bar {
+
+    padding:
+        12px 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    border-bottom:
+        1px solid var(--border);
+
+}
+
+
+.browser-dots {
+
+    display: flex;
+
+    gap: 5px;
+
+}
+
+
+.browser-dots span {
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #555;
+
+}
+
+
+.browser-url {
+
+    flex: 1;
+
+    background: #15151f;
+
+    color: #666678;
+
+    border-radius: 5px;
+
+    text-align: center;
+
+    font-size: 10px;
+
+    padding: 5px;
+
+}
+
+
+.project-placeholder {
+
+    position: relative;
+
+    min-height: 330px;
+
+    overflow: hidden;
+
+}
+
+
+.featured-top-row {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+}
+
+
+.featured-top-row .project-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    font-size: 16px;
+
+}
+
+
+.featured-label,
+.project-type,
+.timeline-type {
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: var(--purple-light);
+
+    font-weight: 700;
+
+}
+
+
+.project-content h3 {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 42px;
+
+    margin-top: 10px;
+
+}
+
+
+.project-content h4 {
+
+    color: #b7b7c4;
+
+    margin-bottom: 18px;
+
+}
+
+
+.project-content p {
+
+    color: var(--text-muted);
+
+}
+
+
+.project-highlights {
+
+    margin:
+        22px 0;
+
+    display: grid;
+
+    gap: 8px;
+
+    color: #b5b5c4;
+
+    font-size: 13px;
+
+}
+
+
+.project-highlights i {
+
+    color: var(--purple);
+
+    margin-right: 8px;
+
+}
+
+
+.project-tech {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 20px;
+
+}
+
+
+.project-tech span {
+
+    padding:
+        6px 10px;
+
+    background:
+        rgba(139, 92, 246, 0.08);
+
+    color: #b9a6ef;
+
+    border-radius: 5px;
+
+    font-size: 11px;
+
+}
+
+
+.project-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin-top: 30px;
+
+}
+
+
+.project-github {
+
+    display: flex;
+
+    gap: 8px;
+
+    align-items: center;
+
+    color: var(--text-muted);
+
+    font-size: 14px;
+
+}
+
+
+.project-github:hover {
+
+    color: white;
+
+}
+
+
+.card-links {
+
+    margin-top: 22px;
+
+    gap: 18px;
+
+}
+
+
+.card-live-link {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: var(--purple-light);
+
+    transition: 0.3s;
+
+}
+
+
+.card-live-link i {
+
+    font-size: 11px;
+
+}
+
+
+.card-live-link:hover {
+
+    color: var(--cyan);
+
+    transform: translateX(2px);
+
+}
+
+
+.card-links .project-github {
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================================
+   PROJECT CARDS
+========================================================= */
+
+.projects-section .container {
+
+    perspective: 1400px;
+
+}
+
+
+.projects-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 20px;
+
+    perspective: 1200px;
+
+}
+
+
+.more-projects-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 380px));
+
+    gap: 20px;
+
+    perspective: 1200px;
+
+}
+
+
+.more-projects-cta {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 50px;
+
+}
+
+
+.more-projects-page {
+
+    padding-top: 170px;
+
+}
+
+
+.more-projects-button {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 16px 34px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 50px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: var(--text);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(139, 92, 246, 0.10),
+            rgba(34, 211, 238, 0.06)
+        );
+
+    transition: 0.35s ease;
+
+}
+
+
+.more-projects-button i {
+
+    transition: 0.3s ease;
+
+}
+
+
+.more-projects-button:hover {
+
+    border-color: var(--purple);
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 30px
+        rgba(139, 92, 246, 0.25);
+
+}
+
+
+.more-projects-button:hover i {
+
+    transform: translateX(5px);
+
+}
+
+
+/* =========================================================
+   PROJECT SCREEN (hover-reveal screenshot area)
+   Styled like a mini browser-window, matching the NeuroWeb
+   featured project mockup. Reveal is a simple fade + zoom
+   (the 3D flip further below is reserved for NeuroWeb only).
+========================================================= */
+
+.project-screen {
+
+    position: relative;
+
+    margin-bottom: 22px;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    background: #0a0a10;
+
+    border: 1px solid var(--border);
+
+}
+
+
+.project-screen .browser-bar {
+
+    padding: 10px 13px;
+
+}
+
+
+.project-screen .browser-url {
+
+    font-size: 9px;
+
+}
+
+
+.project-screen-body {
+
+    position: relative;
+
+    height: 148px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139, 92, 246, 0.16),
+            rgba(34, 211, 238, 0.08)
+        );
+
+}
+
+
+.project-screen-hint {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    text-align: center;
+
+    padding: 0 20px;
+
+    z-index: 1;
+
+    transition: opacity 0.4s ease;
+
+}
+
+
+.project-screen-hint i {
+
+    font-size: 24px;
+
+    color: var(--purple-light);
+
+}
+
+
+.project-screen-body img {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: top center;
+
+    opacity: 0;
+
+    z-index: 2;
+
+    transform: scale(1.12);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+
+.project-card:hover .project-screen-body img {
+
+    opacity: 1;
+
+    transform: scale(1);
+
+}
+
+
+.project-card:hover .project-screen.has-image .project-screen-hint {
+
+    opacity: 0.15;
+
+}
+
+
+/* =========================================================
+   PROJECT FLIP REVEAL
+   Every project card (NeuroWeb + the grid cards) uses this same
+   3D flip: a themed icon "poster" on the front, flips over on
+   hover to reveal the actual app screenshot on the back.
+========================================================= */
+
+.flip-scene {
+
+    position: relative;
+
+    perspective: 1600px;
+
+}
+
+
+.project-card .flip-scene {
+
+    height: 190px;
+
+    margin-bottom: 22px;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+
+}
+
+
+.flip-inner {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 330px;
+
+    height: 100%;
+
+    transform-style: preserve-3d;
+
+    transition: transform 0.85s cubic-bezier(0.4, 0.1, 0.2, 1);
+
+}
+
+
+.project-card .flip-inner {
+
+    min-height: 0;
+
+}
+
+
+.featured-project:hover .flip-inner,
+.project-card:hover .flip-inner {
+
+    transform: rotateY(180deg);
+
+}
+
+
+.flip-face {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    backface-visibility: hidden;
+
+    -webkit-backface-visibility: hidden;
+
+}
+
+
+.project-card .flip-face {
+
+    gap: 10px;
+
+}
+
+
+.flip-front {
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(139, 92, 246, 0.2),
+            transparent 55%
+        );
+
+}
+
+
+.flip-front i {
+
+    font-size: 75px;
+
+    color: var(--purple-light);
+
+}
+
+
+.flip-front span {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+}
+
+
+.project-card .flip-front i {
+
+    font-size: 42px;
+
+}
+
+
+.project-card .flip-front span {
+
+    font-size: 17px;
+
+}
+
+
+/* Per-project poster themes so each card's front face feels distinct */
+.flip-front-pinit {
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(139, 92, 246, 0.2),
+            transparent 60%
+        );
+
+}
+
+
+.flip-front-pinit i {
+
+    color: var(--purple-light);
+
+}
+
+
+.flip-front-voting {
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(139, 92, 246, 0.2),
+            transparent 60%
+        );
+
+}
+
+
+.flip-front-voting i {
+
+    color: var(--purple-light);
+
+}
+
+
+.flip-front-docs {
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(139, 92, 246, 0.2),
+            transparent 60%
+        );
+
+}
+
+
+.flip-front-docs i {
+
+    color: var(--purple-light);
+
+}
+
+
+.flip-back {
+
+    transform: rotateY(180deg);
+
+    overflow: hidden;
+
+    background: #0a0a10;
+
+}
+
+
+.flip-back-hint {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: var(--text-muted);
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    z-index: 1;
+
+}
+
+
+.project-card .flip-back-hint {
+
+    font-size: 10px;
+
+    gap: 6px;
+
+}
+
+
+.flip-back-hint i {
+
+    font-size: 34px;
+
+    color: var(--purple-light);
+
+}
+
+
+.project-card .flip-back-hint i {
+
+    font-size: 22px;
+
+}
+
+
+.flip-back img {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 2;
+
+}
+
+
+.flip-scene.has-image .flip-back-hint {
+
+    display: none;
+
+}
+
+
+.project-card {
+
+    padding: 30px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 20px;
+
+    background: var(--card);
+
+    transition: 0.4s;
+
+    transform-style: preserve-3d;
+
+    will-change: transform;
+
+}
+
+
+.project-card:hover,
+.featured-project:hover {
+
+    transform:
+        translateY(-10px);
+
+    border-color:
+        rgba(139, 92, 246, 0.5);
+
+}
+
+
+.project-card-top {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+
+}
+
+
+.project-icon {
+
+    width: 50px;
+    height: 50px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 14px;
+
+    background:
+        rgba(139, 92, 246, 0.12);
+
+    color: var(--purple-light);
+
+    animation:
+        iconFloat
+        4s
+        ease-in-out
+        infinite;
+
+}
+
+
+.project-arrow {
+
+    color: #555568;
+
+    transition: 0.3s;
+
+}
+
+
+.project-card:hover
+.project-arrow {
+
+    color: var(--purple-light);
+
+    transform:
+        translate(4px, -4px);
+
+}
+
+
+.project-card h3 {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 23px;
+
+    margin:
+        10px 0;
+
+}
+
+
+.project-card p {
+
+    color: var(--text-muted);
+
+    font-size: 14px;
+
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline {
+
+    max-width: 850px;
+
+    margin: auto;
+
+    position: relative;
+
+}
+
+
+.timeline::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 8px;
+
+    top: 0;
+
+    height: 100%;
+
+    width: 1px;
+
+    background: var(--border);
+
+}
+
+
+.timeline-item {
+
+    position: relative;
+
+    padding-left: 50px;
+
+    padding-bottom: 50px;
+
+}
+
+
+.timeline-marker {
+
+    position: absolute;
+
+    left: 0;
+    top: 8px;
+
+    width: 17px;
+    height: 17px;
+
+    border-radius: 50%;
+
+    background: var(--bg);
+
+    border:
+        3px solid var(--purple);
+
+    box-shadow:
+        0 0 20px
+        rgba(139, 92, 246, 0.5);
+
+    animation:
+        markerPulse
+        2.4s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes markerPulse {
+
+    0%, 100% {
+
+        box-shadow:
+            0 0 12px
+            rgba(139, 92, 246, 0.4);
+
+    }
+
+    50% {
+
+        box-shadow:
+            0 0 26px
+            rgba(139, 92, 246, 0.85);
+
+    }
+
+}
+
+
+.timeline-content {
+
+    background: var(--card);
+
+    border:
+        1px solid var(--border);
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+}
+
+
+.timeline-content h3 {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 23px;
+
+    margin-top: 8px;
+
+}
+
+
+.timeline-content h4 {
+
+    color: #b2b2c0;
+
+    font-size: 14px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.timeline-content p {
+
+    color: var(--text-muted);
+
+}
+
+
+/* =========================================================
+   EDUCATION
+========================================================= */
+
+.education-card {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 35px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 20px;
+
+    background: var(--card);
+
+}
+
+
+.education-icon {
+
+    min-width: 70px;
+    height: 70px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(139, 92, 246, 0.12);
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 27px;
+
+    color: var(--purple-light);
+
+    animation:
+        iconFloat
+        4s
+        ease-in-out
+        infinite;
+
+}
+
+
+.education-year {
+
+    color: var(--purple-light);
+
+    font-size: 12px;
+
+}
+
+
+.education-content h3 {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size: 25px;
+
+}
+
+
+.education-content h4,
+.education-content p {
+
+    color: var(--text-muted);
+
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-box {
+
+    position: relative;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    padding:
+        80px 30px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 35px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(139, 92, 246, 0.13),
+            transparent 45%
+        ),
+        var(--card);
+
+}
+
+
+.contact-box h2 {
+
+    font-family:
+        "Space Grotesk",
+        sans-serif;
+
+    font-size:
+        clamp(
+            40px,
+            6vw,
+            70px
+        );
+
+    max-width: 850px;
+
+    margin:
+        15px auto 20px;
+
+    line-height: 1.1;
+
+    letter-spacing: -3px;
+
+}
+
+
+.contact-box > p {
+
+    color: var(--text-muted);
+
+    max-width: 600px;
+
+    margin-inline: auto;
+
+}
+
+
+.contact-email {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 35px;
+
+    font-size:
+        clamp(
+            16px,
+            3vw,
+            25px
+        );
+
+    border-bottom:
+        1px solid var(--purple);
+
+    padding-bottom: 5px;
+
+}
+
+
+.contact-socials {
+
+    margin-top: 35px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+}
+
+
+.contact-socials a {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    border:
+        1px solid var(--border);
+
+    padding:
+        10px 18px;
+
+    border-radius: 50px;
+
+    color: var(--text-muted);
+
+    transition: 0.3s;
+
+}
+
+
+.contact-socials a:hover {
+
+    color: white;
+
+    border-color:
+        var(--purple);
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+
+    border-top:
+        1px solid var(--border);
+
+    padding:
+        25px 0;
+
+}
+
+
+.footer-content {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #666678;
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+.back-to-top {
+
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    background: var(--purple);
+
+    color: white;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform:
+        translateY(15px);
+
+    transition: 0.3s;
+
+}
+
+
+.back-to-top.show {
+
+    opacity: 1;
+
+    pointer-events: auto;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
+
+.reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+
+}
+
+
+.reveal.active {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (
+    max-width: 1000px
+) {
+
+    .hero-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .hero-visual {
+
+        max-width: 600px;
+
+        margin: 30px auto 0;
+
+    }
+
+
+    .qualities-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .featured-project {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .projects-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (
+    max-width: 768px
+) {
+
+    .section {
+
+        padding:
+            90px 0;
+
+    }
+
+
+    .nav-links {
+
+        position: fixed;
+
+        top: 76px;
+        left: 0;
+
+        width: 100%;
+
+        background:
+            rgba(5, 6, 13, 0.97);
+
+        backdrop-filter:
+            blur(20px);
+
+        display: flex;
+
+        flex-direction: column;
+
+        padding:
+            30px;
+
+        gap: 20px;
+
+        transform:
+            translateY(-150%);
+
+        transition:
+            0.4s;
+
+        border-bottom:
+            1px solid var(--border);
+
+        box-shadow:
+            0 20px 40px
+            rgba(0, 0, 0, 0.4);
+
+    }
+
+
+    .nav-links.open {
+
+        transform:
+            translateY(0);
+
+    }
+
+
+    .menu-button {
+
+        display: flex;
+
+    }
+
+
+    .resume-nav {
+
+        display: none;
+
+    }
+
+
+    .hero-title {
+
+        letter-spacing: -4px;
+
+    }
+
+
+    .about-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 40px;
+
+    }
+
+
+    .skills-container {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .projects-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .floating-badge {
+
+        display: none;
+
+    }
+
+}
+
+
+@media (
+    max-width: 550px
+) {
+
+    .container {
+
+        width:
+            min(
+                100% - 28px,
+                1180px
+            );
+
+    }
+
+
+    .hero-title {
+
+        font-size: 58px;
+
+        letter-spacing: -4px;
+
+    }
+
+
+    .hero-role {
+
+        font-size: 14px;
+
+    }
+
+
+    .stats-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .qualities-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .featured-project {
+
+        padding: 20px;
+
+    }
+
+
+    .project-placeholder {
+
+        min-height: 230px;
+
+    }
+
+
+    .project-content h3 {
+
+        font-size: 35px;
+
+    }
+
+
+    .project-links {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+
+    .education-card {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+
+    .contact-box {
+
+        padding:
+            60px 20px;
+
+    }
+
+
+    .contact-box h2 {
+
+        letter-spacing: -2px;
+
+    }
+
+
+    .footer-content {
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 5px;
+
+    }
+
+
+    .cursor-glow {
+
+        display: none;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+    prefers-reduced-motion: reduce
+) {
+
+    .reveal {
+
+        transition-duration:
+            0.01ms !important;
+
+        opacity: 1;
+
+        transform: none;
+
+    }
+
+
+    html {
+
+        scroll-behavior:
+            auto !important;
+
+    }
+
+}
+
+/* =========================================================
+   RECRUITER-FOCUSED ADDITIONS
+========================================================= */
+
+/* Hero meta row (availability + location) */
+
+.hero-meta-row {
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 30px;
+
+}
+
+.hero-meta-row .availability {
+
+    margin-bottom: 0;
+
+}
+
+.hero-location {
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #c7c7d2;
+
+}
+
+.hero-location i {
+
+    color: var(--purple-light);
+
+}
+
+
+/* Quality card proof line */
+
+.quality-proof {
+
+    display: block;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--cyan);
+    font-weight: 500;
+    line-height: 1.5;
+
+}
+
+
+/* Skill proficiency legend + levels */
+
+.skill-legend {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 16px;
+
+}
+
+.legend-item {
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-muted);
+
+}
+
+.dot {
+
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+
+}
+
+.dot-expert { background: var(--cyan); }
+.dot-mid { background: var(--purple-light); }
+.dot-basic { background: #55556a; }
+
+.skill-list span.lvl-expert,
+.skill-list span.lvl-mid,
+.skill-list span.lvl-basic {
+
+    padding-left: 10px;
+
+}
+
+.skill-list span.lvl-expert::before,
+.skill-list span.lvl-mid::before,
+.skill-list span.lvl-basic::before {
+
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+
+}
+
+.skill-list span.lvl-expert::before { background: var(--cyan); }
+.skill-list span.lvl-mid::before { background: var(--purple-light); }
+.skill-list span.lvl-basic::before { background: #55556a; }
+
+
+/* Project metrics strip (NeuroWeb) */
+
+.project-metrics {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 22px 0;
+
+}
+
+.metric-chip {
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: rgba(139, 92, 246, 0.06);
+    min-width: 130px;
+
+}
+
+.metric-value {
+
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text);
+
+}
+
+.metric-label {
+
+    font-size: 11px;
+    color: var(--text-muted);
+
+}
+
+
+/* Project card impact line */
+
+.card-impact {
+
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 4px 0 16px;
+    font-size: 12.5px;
+    color: var(--cyan);
+    line-height: 1.5;
+
+}
+
+.card-impact i {
+
+    margin-top: 3px;
+    font-size: 11px;
+
+}
+
+
+/* Experience bullet lists */
+
+.timeline-list {
+
+    margin: 0;
+    padding-left: 18px;
+    color: var(--text-muted);
+    font-size: 14.5px;
+    line-height: 1.9;
+
+}
+
+.timeline-list li::marker {
+
+    color: var(--purple-light);
+
+}
+
+
+/* Achievements & Certifications */
+
+.achievements-grid {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+
+}
+
+.achievement-card {
+
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 28px;
+    border-radius: 20px;
+    transition: 0.4s;
+    text-align: center;
+
+}
+
+.achievement-card:hover {
+
+    transform: translateY(-8px);
+    border-color: rgba(139, 92, 246, 0.6);
+
+}
+
+.achievement-icon {
+
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 18px;
+    border-radius: 14px;
+    background: rgba(139, 92, 246, 0.12);
+    color: var(--purple-light);
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+
+}
+
+.achievement-card h3 {
+
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 16px;
+    margin-bottom: 8px;
+
+}
+
+.achievement-card p {
+
+    color: var(--text-muted);
+    font-size: 13px;
+
+}
+
+.achievement-placeholder {
+
+    border-style: dashed;
+    opacity: 0.6;
+
+}
+
+.achievement-placeholder .achievement-icon {
+
+    background: transparent;
+    border: 1px dashed var(--border);
+
+}
+
+
+/* Education coursework line */
+
+.education-coursework {
+
+    margin-top: 10px !important;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    line-height: 1.6;
+
+}
+
+
+/* Contact info row */
+
+.contact-info-row {
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin: 18px 0 26px;
+    font-size: 13px;
+    color: var(--text-muted);
+
+}
+
+.contact-info-row span {
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+}
+
+.contact-info-row i {
+
+    color: var(--purple-light);
+
+}
+
+
+/* Micro-interactions */
+
+.project-card,
+.quality-card,
+.achievement-card,
+.skill-category,
+.education-card {
+
+    will-change: transform;
+
+}
+
+.project-card:hover .project-icon,
+.featured-project:hover .project-visual {
+
+    transform: translateY(-4px);
+
+}
+
+.primary-button,
+.secondary-button {
+
+    position: relative;
+    overflow: hidden;
+
+}
+
+.primary-button::before,
+.secondary-button::before {
+
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -60%;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.18),
+        transparent
+    );
+    transform: skewX(-20deg);
+    transition: left 0.6s ease;
+
+}
+
+.primary-button:hover::before,
+.secondary-button:hover::before {
+
+    left: 130%;
+
+}
+
+.nav-link {
+
+    position: relative;
+
+}
+
+.nav-link::after {
+
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: var(--gradient);
+    transition: width 0.3s ease;
+
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+
+    width: 100%;
+
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+    .achievements-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .hero-meta-row {
+
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+
+    }
+
+    .project-metrics {
+
+        gap: 8px;
+
+    }
+
+    .metric-chip {
+
+        min-width: 0;
+        flex: 1 1 45%;
+
+    }
+
+}
+
+/* =========================================================
+   SCROLL INDICATOR
+========================================================= */
+
+.scroll-indicator {
+
+    position: absolute;
+
+    bottom: 40px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    z-index: 1;
+
+}
+
+
+.scroll-line {
+
+    width: 1px;
+    height: 50px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            var(--purple),
+            transparent
+        );
+
+    animation: scrollPulse 2s ease-in-out infinite;
+
+}
+
+
+@keyframes scrollPulse {
+
+    0%, 100% { opacity: 1; transform: scaleY(1); }
+
+    50%       { opacity: 0.4; transform: scaleY(0.6); }
+
+}
+
+/* =========================================================
+   CODE CARD
+========================================================= */
+
+.developer-card {
+
+    position: relative;
+
+    background: rgba(15, 15, 24, 0.92);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    overflow: visible;
+
+    box-shadow:
+        0 40px 100px
+        rgba(0, 0, 0, 0.4);
+
+    animation: cardFloat 6s ease-in-out infinite;
+
+    transition: box-shadow 0.4s, border-color 0.4s;
+
+}
+
+
+.developer-card:hover {
+
+    box-shadow:
+        0 60px 120px rgba(0, 0, 0, 0.5),
+        0 0 60px rgba(139, 92, 246, 0.12);
+
+    border-color: rgba(139, 92, 246, 0.3);
+
+}
+
+
+@keyframes cardFloat {
+
+    50% {
+
+        transform: translateY(-15px);
+
+    }
+
+}
+
+
+.code-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 15px 20px;
+
+    border-bottom: 1px solid var(--border);
+
+    color: var(--text-muted);
+
+    font-size: 12px;
+
+}
+
+
+.code-dots {
+
+    display: flex;
+
+    gap: 7px;
+
+}
+
+
+.code-dots span {
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+}
+
+
+.code-dots span:nth-child(1) { background: #ff5f57; }
+.code-dots span:nth-child(2) { background: #febc2e; }
+.code-dots span:nth-child(3) { background: #28c840; }
+
+
+.code-content {
+
+    padding: 35px;
+
+    font-family: monospace;
+
+    color: #b4b4c4;
+
+    line-height: 1.9;
+
+    font-size: 14px;
+
+}
+
+
+.indent    { padding-left: 25px; }
+.indent-two { padding-left: 50px; }
+
+.code-purple { color: #c084fc; }
+.code-blue   { color: #67e8f9; }
+.code-green  { color: #86efac; }
+.code-orange { color: #fdba74; }
+
+
+/* =========================================================
+   FLOATING BADGES (hover-icon color only — positions/box-shadow
+   are already defined once, in the FLOATING BADGES block above,
+   right after .hero-socials)
+========================================================= */
+
+.floating-badge i {
+
+    color: var(--purple-light);
+
+    transition: transform 0.3s;
+
+}
+
+
+.floating-badge:hover i {
+
+    transform: scale(1.25) rotate(-10deg);
+
+}
+
+
+/* Orbit placement fix */
+.developer-card{
+    position: relative;
+    isolation: isolate;
+}
+
+.code-header,
+.code-content{
+    position:relative;
+    z-index:2;
+}
+
+@media (max-width:768px){
+
+    .developer-card{
+        overflow:visible;
+    }
+
+    .code-header,
+    .code-content{
+        z-index:2;
+    }
+
+    /* All decorative orbit rings (hero card, section headings,
+       and the contact box) are purely aria-hidden flourishes.
+       At this width they no longer have room to sit next to
+       their heading without overlapping text/badges, so they
+       are hidden rather than squeezed into an awkward, tiny,
+       overlapping position. */
+    .orbit-scene{
+        display:none;
+    }
+}
+
+
+/*=========================================================
+    SECTION SCROLL DIVIDER
+=========================================================*/
+
+.section-scroll-divider{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+
+    width:100%;
+    margin:70px auto 0;
+
+    pointer-events:none;
+    user-select:none;
+}
+
+.section-scroll-divider span{
+    font-size:11px;
+    letter-spacing:5px;
+    font-weight:600;
+    color:rgba(255,255,255,.45);
+}
+
+.divider-line{
+    position:relative;
+
+    width:2px;
+    height:70px;
+
+    overflow:hidden;
+    border-radius:50px;
+
+    background:linear-gradient(
+        to bottom,
+        transparent,
+        rgba(255,255,255,.22),
+        transparent
+    );
+
+    animation: scrollPulse 2s ease-in-out infinite;
+}
+
+.scroll-dot{
+    position:absolute;
+
+    left:50%;
+    transform:translateX(-50%);
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--purple);
+
+    box-shadow:
+        0 0 12px rgba(139,92,246,.9),
+        0 0 24px rgba(139,92,246,.5);
+
+}
+
+@keyframes scrollDivider{
+
+    0%{
+        top:-10px;
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    80%{
+        opacity:1;
+    }
+
+    100%{
+        top:70px;
+        opacity:0;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .section-scroll-divider{
+        margin-top:50px;
+    }
+
+    .divider-line{
+        height:55px;
+    }
+
+    @keyframes scrollDivider{
+
+        0%{
+            top:-10px;
+            opacity:0;
+        }
+
+        100%{
+            top:55px;
+            opacity:0;
+        }
+
+    }
+
+}
+
+/* =========================================================
+   MOBILE VISIBILITY + PERFORMANCE PATCH
+   ========================================================= */
+
+/* Keep screenshot framing consistent and never crop important UI. */
+.flip-back img,
+.project-screen-body img {
+    object-fit: contain;
+    object-position: center;
+    background: #0a0a10;
+}
+
+/* Icon-only contact actions */
+.contact-socials-icons a {
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    border-radius: 50%;
+    justify-content: center;
+    font-size: 20px;
+}
+.contact-socials-icons a i {
+    margin: 0;
+}
+
+/* Cheaper fixed header compositing. */
+.header {
+}
+.footer {
+    contain: layout paint;
+}
+
+@media (max-width: 768px) {
+    /* The previous stylesheet explicitly used display:none here.
+       Restore the decorative rings and place the hero orbit outside
+       the card's upper-right edge, behind the card content. */
+    .orbit-scene {
+        display: block;
+        width: 230px;
+        height: 230px;
+        top: -72px;
+        right: -58px;
+        left: auto;
+        opacity: .42;
+        z-index: 0;
+        transform: translateZ(0);
+    }
+
+    .developer-card {
+        overflow: visible;
+        isolation: isolate;
+    }
+
+    .developer-card .code-header,
+    .developer-card .code-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Section-heading orbits remain visible but smaller and behind text. */
+    .orbit-heading {
+        overflow: visible;
+        isolation: isolate;
+    }
+
+    .orbit-heading > .heading-text,
+    .orbit-heading > .section-number,
+    .orbit-heading > h2,
+    .orbit-heading > p {
+        position: relative;
+        z-index: 2;
+    }
+
+    .orbit-heading > .orbit-scene {
+        width: 145px;
+        height: 145px;
+        top: -28px;
+        right: -30px;
+        opacity: .28;
+        z-index: 0;
+    }
+
+    /* Touch screens cannot rely on hover flips. Show the real screenshots. */
+    .project-card .flip-scene {
+        height: 210px;
+    }
+
+.project-card .flip-back img,
+    .featured-project .flip-back img {
+        object-fit: contain;
+        object-position: center;
+    }
+
+    .featured-project .project-placeholder {
+        min-height: 250px;
+    }
+
+    /* Reduce expensive glass effects during mobile scrolling. */
+    .header,
+    .nav-links {
+        background: rgba(5, 6, 13, .96);
+    }
+
+    .header {
+        transition: background-color .2s ease, border-color .2s ease;
+    }
+
+    .header.scrolled {
+        box-shadow: 0 4px 18px rgba(0, 0, 0, .22);
+    }
+
+    .header::after {
+        transition: opacity .2s ease, transform .2s ease;
+    }
+
+    .contact-box {
+        padding: 52px 20px;
+    }
+
+    .contact-box h2 {
+        font-size: clamp(34px, 10vw, 48px);
+        letter-spacing: -2px;
+    }
+
+    .contact-socials {
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .footer {
+        padding: 18px 0;
+    }
+
+    .footer-content {
+        gap: 4px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .orbit-scene {
+        width: 205px;
+        height: 205px;
+        top: -58px;
+        right: -46px;
+        opacity: .38;
+    }
+
+    .orbit-heading > .orbit-scene {
+        width: 120px;
+        height: 120px;
+        right: -18px;
+        top: -20px;
+        opacity: .24;
+    }
+
+    .project-card {
+        padding: 20px;
+    }
+
+    .project-card .flip-scene {
+        height: 190px;
+    }
+}
+
+
+
+.scroll-progress {
+    transform-origin: left center;
+    will-change: transform;
+}
+
+
+/* =========================================================
+   MOBILE ANIMATION RESTORE
+   Keeps the original motion while avoiding heavy touch effects.
+   ========================================================= */
+@media (max-width: 768px) {
+    .orbit-path {
+        animation-play-state: running !important;
+    }
+
+    .orbit-icon {
+        animation-play-state: running !important;
+    }
+
+    .orbit-core {
+        animation-play-state: running !important;
+    }
+
+    .code-cursor {
+        animation-play-state: running !important;
+    }
+
+    .reveal {
+        transition-property: opacity, transform !important;
+    }
+
+    /* Preserve visual motion without forcing expensive 3D pointer tracking. */
+    .project-card,
+    .featured-project,
+    .developer-card {
+        transform-style: preserve-3d;
+    }
+}
+
+
+/* =========================================================
+   PROJECT FLIP + PERFORMANCE FIX
+   ========================================================= */
+.flip-scene {
+    perspective: 1000px;
+}
+
+.flip-inner {
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: transform .65s cubic-bezier(.2,.7,.2,1);
+}
+
+.flip-front,
+.flip-back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-back {
+    transform: rotateY(180deg);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .project-card:hover .flip-inner,
+    .featured-project:hover .flip-inner {
+        transform: rotateY(180deg);
+    }
+}
+
+.project-card.is-flipped .flip-inner,
+.featured-project.is-flipped .flip-inner {
+    transform: rotateY(180deg) !important;
+}
+
+@media (max-width: 768px) {
+    /* Restore both faces on mobile so the photo actually flips in. */
+    .project-card .flip-front,
+    .featured-project .flip-front,
+    .project-card .flip-back,
+    .featured-project .flip-back {
+        display: block;
+    }
+
+    .project-card .flip-back,
+    .featured-project .flip-back {
+        transform: rotateY(180deg);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    .project-card .flip-inner,
+    .featured-project .flip-inner {
+        transform-style: preserve-3d;
+    }
+
+    /* Avoid layout/paint work for sections far outside the viewport. */
+    .projects-section,
+    .skills-section,
+    .experience-section,
+    .achievements-section,
+    .contact-section {
+        content-visibility: auto;
+        contain-intrinsic-size: 700px;
+    }
+}
+
+
+/* =========================================================
+   NON-DESTRUCTIVE ANIMATION PERFORMANCE
+   ========================================================= */
+.orbit-scene,
+.orbit-path,
+.orbit-icon,
+.orbit-core,
+.flip-inner,
+.reveal,
+.scroll-progress {
+    transform-style: preserve-3d;
+}
+
+.orbit-path,
+.orbit-icon,
+.orbit-core,
+.flip-inner {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.header,
+.footer {
+    transform: translateZ(0);
+}
+
+/* On mobile, keep animations but reduce expensive blur/filter compositing. */
+@media (max-width: 768px) {
+    .header,
+    .nav-links {
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
+
+    .orbit-scene {
+        will-change: transform;
+    }
+
+    .orbit-path,
+    .orbit-icon,
+    .orbit-core {
+        animation-play-state: running !important;
+    }
+}
+
+
+/* =========================================================
+   LARGER MOBILE SECTION ORBITS
+   First/hero orbit intentionally unchanged.
+   ========================================================= */
+@media (max-width: 768px) {
+    .orbit-heading > .orbit-scene {
+        width: 190px !important;
+        height: 190px !important;
+        opacity: .34;
+    }
+
+    .orbit-heading > .orbit-scene-contact {
+        width: 230px !important;
+        height: 230px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .orbit-heading > .orbit-scene {
+        width: 165px !important;
+        height: 165px !important;
+    }
+
+    .orbit-heading > .orbit-scene-contact {
+        width: 205px !important;
+        height: 205px !important;
+    }
+}
+
+
+/* =========================================================
+   PERFORMANCE PASS — KEEP ANIMATIONS
+   ========================================================= */
+@media (max-width: 768px) {
+    /* Shadows/blur across many large cards are expensive while scrolling. */
+    .project-card,
+    .featured-project,
+    .skill-card,
+    .experience-card,
+    .achievement-card,
+    .contact-box {
+        box-shadow: none !important;
+    }
+
+    /* Don't reserve GPU layers for every orbit element indefinitely. */
+    .orbit-scene,
+    .orbit-path,
+    .orbit-icon,
+    .orbit-core {
+        will-change: auto !important;
+    }
+
+    /* Preserve motion while making the secondary section orbits less costly. */
+    .orbit-heading > .orbit-scene .orbit-icon {
+        filter: none !important;
+    }
+}
+
+
+
+
+/* =========================================================
+   PROJECT FLIP — FINAL FIX
+   Front = browser/mock preview. Back = actual project image.
+   ========================================================= */
+.project-card .flip-scene,
+.featured-project .flip-scene {
+    position: relative;
+    width: 100%;
+    perspective: 1100px;
+}
+
+.project-card .flip-inner,
+.featured-project .flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform .65s cubic-bezier(.2,.75,.25,1);
+}
+
+.project-card .flip-front,
+.project-card .flip-back,
+.featured-project .flip-front,
+.featured-project .flip-back {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.project-card .flip-front,
+.featured-project .flip-front {
+    transform: rotateY(0deg);
+}
+
+.project-card .flip-back,
+.featured-project .flip-back {
+    transform: rotateY(180deg);
+}
+
+/* The actual screenshot on the back must fill the complete card face. */
+.project-card .flip-back img,
+.featured-project .flip-back img {
+    display: block !important;
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+}
+
+/* Desktop hover */
+@media (hover: hover) and (pointer: fine) {
+    .project-card:hover .flip-inner,
+    .featured-project:hover .flip-inner {
+        transform: rotateY(180deg);
+    }
+}
+
+/* Touch/mobile tap state */
+.project-card.is-flipped .flip-inner,
+.featured-project.is-flipped .flip-inner {
+    transform: rotateY(180deg) !important;
+}
+
+@media (max-width: 768px) {
+    .project-card .flip-scene {
+        height: 260px !important;
+        min-height: 260px !important;
+    }
+
+    .featured-project .flip-scene {
+        height: 300px !important;
+        min-height: 300px !important;
+    }
+
+    /* Critical: undo the old mobile rule that permanently showed only the back/front. */
+    .project-card .flip-front,
+    .project-card .flip-back,
+    .featured-project .flip-front,
+    .featured-project .flip-back {
+        display: block !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-card .flip-scene {
+        height: 235px !important;
+        min-height: 235px !important;
+    }
+
+    .featured-project .flip-scene {
+        height: 270px !important;
+        min-height: 270px !important;
+    }
+}
+
+
+/* =========================================================
+   PROJECT FRONT FACE — TRUE CENTERING
+   .flip-front itself contains the icon + project title.
+   ========================================================= */
+.project-card .flip-front,
+.featured-project .flip-front {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 14px;
+    text-align: center;
+    padding: 0 !important;
+}
+
+/* Keep icon + text centered as one unit, overriding old offsets. */
+.project-card .flip-front > i,
+.featured-project .flip-front > i,
+.project-card .flip-front > span,
+.featured-project .flip-front > span {
+    position: static !important;
+    inset: auto !important;
+    transform: none !important;
+    margin: 0 !important;
+}
+
+/* The glow belongs to the front face; center it on the same point. */
+.project-card .flip-front::before,
+.featured-project .flip-front::before,
+.project-card .flip-front::after,
+.featured-project .flip-front::after {
+    background-position: center center !important;
+}
+
+/* About orbit speed only. */
+#about .orbit-path,
+.about-section .orbit-path,
+#about .orbit-icon,
+.about-section .orbit-icon {
+    animation-duration: 4.5s !important;
+}
+
+
+/* =========================================================
+   FINAL PROJECT POLISH
+   ========================================================= */
+
+/* NeuroWeb's featured card is wider than the other cards.
+   Center its icon/text group explicitly as one intrinsic-width unit. */
+.featured-project .flip-front-neuroweb,
+.featured-project .flip-front:first-child {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 14px !important;
+    width: 100% !important;
+    height: 100% !important;
+    padding: 0 !important;
+    text-align: center !important;
+}
+
+.featured-project .flip-front-neuroweb > i,
+.featured-project .flip-front-neuroweb > span,
+.featured-project .flip-front:first-child > i,
+.featured-project .flip-front:first-child > span {
+    position: static !important;
+    transform: none !important;
+    margin: 0 !important;
+}
+
+/* Real screenshots: preserve their aspect ratio.
+   They fit fully inside the back face instead of being stretched/cropped. */
+.project-card .flip-back,
+.featured-project .flip-back {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    background: #070910;
+}
+
+.project-card .flip-back img,
+.featured-project .flip-back img {
+    position: static !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    margin: 0 !important;
+    transform: none !important;
+}
+
+/* Remove the placeholder hint whenever a real screenshot exists. */
+.flip-back:has(img) .flip-back-hint {
+    display: none !important;
+}
+
+
+/* Last orbit copied exactly from Portfolio (2)(1).zip */
+/* The contact orbit (last orbit) keeps its original absolute
+   position/anchor untouched - it just shrinks on small screens
+   instead of disappearing. See the dedicated media query below. */
+.orbit-scene-contact {
+
+    top: 6%;
+    right: 4%;
+    left: auto;
+    bottom: auto;
+
+    width: 200px;
+    height: 200px;
+
+    opacity: .5;
+
+    z-index: 1;
+
+    filter: drop-shadow(0 0 16px rgba(139, 92, 246, 0.2));
+
+}
+.orbit-core-mini {
+
+    width: 36px;
+    height: 36px;
+
+    font-size: 10px;
+
+}
+.path-five {
+
+    inset: 10%;
+
+    border-color: rgba(52, 211, 153, 0.4);
+
+    animation: orbitSpinCW 11s linear infinite;
+
+}
+.path-six {
+
+    inset: 20%;
+
+    border-color: rgba(250, 204, 21, 0.36);
+
+    animation: orbitSpinCCW 15.5s linear infinite;
+
+}
+.path-seven {
+
+    inset: 30%;
+
+    border-color: rgba(99, 102, 241, 0.34);
+
+    animation: orbitSpinCW 8s linear infinite;
+
+}
+.path-five .orbit-icon {
+
+    animation: counterSpinCCW 11s linear infinite;
+
+}
+.path-six .orbit-icon {
+
+    animation: counterSpinCW 15.5s linear infinite;
+
+}
+.path-seven .orbit-icon {
+
+    animation: counterSpinCCW 8s linear infinite;
+
+}
+.orbit-scene-contact {
+
+        width: 220px;
+        height: 220px;
+
+        top: 0%;
+        right: 3%;
+
+        opacity: .35;
+
+    }
+.orbit-scene-contact {
+
+        width: 200px;
+        height: 200px;
+
+    }
+
+
+/* =========================================================
+   NEUROWEB GLOW — VISUAL CENTER FIX ONLY
+   ========================================================= */
+.featured-project .flip-front {
+    position: absolute;
+    isolation: isolate;
+}
+
+/* Replace the visually offset glow with a symmetric radial glow
+   centered on the exact middle of the NeuroWeb front face. */
+.featured-project .flip-front::before {
+    content: "" !important;
+    position: absolute !important;
+    width: 62% !important;
+    aspect-ratio: 1 / 1 !important;
+    height: auto !important;
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: translate(-50%, -50%) !important;
+    border-radius: 50% !important;
+    background: radial-gradient(
+        circle at center,
+        rgba(139, 92, 246, 0.20) 0%,
+        rgba(139, 92, 246, 0.11) 32%,
+        rgba(139, 92, 246, 0.045) 54%,
+        transparent 72%
+    ) !important;
+    filter: blur(18px) !important;
+    opacity: 1 !important;
+    pointer-events: none !important;
+    z-index: -1 !important;
+}
+
+/* Disable any second pseudo-element glow on NeuroWeb only,
+   preventing two offset glows from creating a false visual center. */
+.featured-project .flip-front::after {
+    content: none !important;
+}
+
+/* Keep the existing centered brain and title above the glow. */
+.featured-project .flip-front > i,
+.featured-project .flip-front > span {
+    z-index: 1;
+}

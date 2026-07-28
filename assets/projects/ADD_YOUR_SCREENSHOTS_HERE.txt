@@ -1,0 +1,22 @@
+Drop your project screenshots in this folder using these exact filenames
+so they automatically appear (with a 3D flip-reveal animation) on the
+matching project card. No code changes needed — just add the files:
+
+  neuroweb.png         -> NeuroWeb (featured project, index.html)
+  pinit.png            -> PinIt (index.html)
+  voting-system.png    -> Online Voting System (index.html)
+  doc-converter.png    -> Multi-Format Document Converter (more-projects.html)
+
+Tips:
+- Recommended size: ~1200x750px (16:10), JPG or PNG, ideally under 500KB.
+- A browser screenshot of your live app/demo works best.
+- Each card shows a themed icon "poster" (brain for NeuroWeb, cap for
+  PinIt, ballot for Voting, export icon for Doc Converter) on the front.
+  Hovering flips the card over to reveal your screenshot on the back.
+- Until you add an image, the back of the flip just shows an "Add
+  screenshot" hint instead of a broken image — so the site never looks
+  broken even before you've added anything.
+- Want more project screens? Copy one of the existing
+  <div class="flip-scene">...</div> blocks (from index.html or
+  more-projects.html), give its front face a new icon/label, and point
+  its <img src="..."> at a new filename you drop in this folder.

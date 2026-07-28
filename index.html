@@ -1,0 +1,1972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Portfolio of Siddhi Girkar — Software Developer specializing in full-stack development, AI/ML and data-driven applications."
+    >
+
+    <title>Siddhi Girkar | Software Developer</title><link rel="icon" type="image/png" href="assets/top.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Cursor Glow -->
+    <div class="cursor-glow"></div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Starfield / Shooting Stars -->
+    <canvas class="starfield" id="starfield"></canvas>
+
+    <!-- Background Decoration -->
+    <div class="background-effects">
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="orb orb-three"></div>
+    </div>
+
+
+    <!-- =====================================================
+                         NAVBAR
+    ====================================================== -->
+
+    <header class="header">
+
+        <nav class="navbar container">
+
+            <a href="#home" class="logo">
+                SG<span>.</span>
+            </a>
+
+            <div class="nav-links" id="navLinks">
+
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#achievements" class="nav-link">Certifications</a>
+                <a href="#contact" class="nav-link">Contact</a>
+
+            </div>
+
+            <a
+                href="assets/Siddhi_Girkar_Resume.pdf"
+                class="resume-nav"
+                target="_blank"
+            >
+                Resume
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                aria-label="Open navigation menu"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- =====================================================
+                              HERO
+        ====================================================== -->
+
+        <section class="hero section" id="home">
+
+            <div class="hero-grid container">
+
+                <div class="hero-content">
+
+                    <div class="hero-meta-row reveal">
+
+                        <div class="availability">
+
+                            <span class="status-dot"></span>
+
+                            Available for opportunities
+
+                        </div>
+
+                        <span class="hero-location">
+                            <i class="fa-solid fa-location-dot"></i>
+                            Mumbai, India
+                        </span>
+
+                    </div>
+
+
+                    <p class="hero-intro reveal">
+                        HELLO, I'M
+                    </p>
+
+
+                    <h1 class="hero-title reveal">
+
+                        Siddhi
+
+                        <span class="gradient-text">
+                            Girkar.
+                        </span>
+
+                    </h1>
+
+                    
+
+                    <div class="hero-role reveal">
+
+                        <span>Software Developer</span>
+
+                        <span class="role-divider">•</span>
+
+                        <span>Full-Stack</span>
+
+                        <span class="role-divider">•</span>
+
+                        <span>AI / ML</span>
+
+                    </div>
+
+
+                    <p class="hero-description reveal">
+
+                        Software Engineer building full-stack and
+                        AI-powered applications — from a two-stage
+                        Alzheimer's screening platform to production
+                        dashboards — using React, Flask, Python and
+                        Machine Learning.
+
+                    </p>
+
+
+                    <div class="hero-buttons reveal">
+
+                        <a href="#projects" class="primary-button">
+
+                            Explore My Work
+
+                            <i class="fa-solid fa-arrow-down"></i>
+
+                        </a>
+
+
+                        <a
+                            href="assets/Siddhi_Girkar_Resume.pdf"
+                            class="secondary-button"
+                            target="_blank"
+                        >
+
+                            Download Resume
+
+                            <i class="fa-solid fa-download"></i>
+
+                        </a>
+
+                    </div>
+
+                    
+
+                    <div class="hero-socials reveal">
+
+                        <a
+                            href="https://github.com/Siddhi11-hash"
+                            target="_blank"
+                            aria-label="GitHub"
+                        >
+
+                            <i class="fa-brands fa-github"></i>
+
+                        </a>
+
+
+                        <a
+                            href="https://linkedin.com/in/siddhi-girkar-11v11g2003"
+                            target="_blank"
+                            aria-label="LinkedIn"
+                        >
+
+                            <i class="fa-brands fa-linkedin-in"></i>
+
+                        </a>
+
+
+                        <a
+                            href="mailto:siddhigirkar355@gmail.com"
+                            aria-label="Email"
+                        >
+
+                            <i class="fa-regular fa-envelope"></i>
+
+                        </a>
+
+                    </div>
+
+                    
+
+                </div>
+
+
+                <!-- Hero Visual -->
+
+                <div class="hero-visual reveal">
+
+                    <div class="visual-glow"></div>
+
+                    <div class="developer-card" role="img" aria-label="Code snippet showing developer profile">
+
+                        <div class="orbit-scene">
+
+                        <div class="orbit-core">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+
+                        <div class="orbit-path path-one">
+                            <span class="orbit-icon">
+                                <i class="fa-brands fa-react"></i>
+                            </span>
+                        </div>
+
+                        <div class="orbit-path path-two">
+                            <span class="orbit-icon">
+                                <i class="fa-brands fa-python"></i>
+                            </span>
+                        </div>
+
+                        <div class="orbit-path path-three">
+                            <span class="orbit-icon">
+                                <i class="fa-solid fa-brain"></i>
+                            </span>
+                        </div>
+
+                        <div class="orbit-path path-four">
+                            <span class="orbit-icon">
+                                <i class="fa-brands fa-git-alt"></i>
+                            </span>
+                        </div>
+
+                    </div>
+
+                        <div class="code-header">
+
+                            <div class="code-dots" aria-hidden="true">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                            <span>developer.js</span>
+
+                        </div>
+
+                        <div class="code-content">
+
+                            <p>
+                                <span class="code-purple">const</span>
+                                <span class="code-blue"> developer</span>
+                                = {
+                            </p>
+
+                            <p class="indent">
+                                name:
+                                <span class="code-green">"Siddhi Girkar"</span>,
+                            </p>
+
+                            <p class="indent">
+                                role:
+                                <span class="code-green">"Software Developer"</span>,
+                            </p>
+
+                            <p class="indent">
+                                skills: [
+                            </p>
+
+                            <p class="indent-two">
+                                <span class="code-green">"Full-Stack"</span>,
+                            </p>
+
+                            <p class="indent-two">
+                                <span class="code-green">"AI / ML"</span>,
+                            </p>
+
+                            <p class="indent-two">
+                                <span class="code-green">"Data"</span>
+                            </p>
+
+                            <p class="indent">
+                                ],
+                            </p>
+
+                            <p class="indent">
+                                openToWork:
+                                <span class="code-orange">true</span>
+                            </p>
+
+                            <p>};</p>
+
+                            <br>
+
+                            <p>
+                                <span class="code-purple">while</span>
+                                (developer.openToWork) {
+                            </p>
+
+                            <p class="indent">
+                                developer.
+                                <span class="code-blue">build()</span>;<span class="code-cursor" aria-hidden="true">_</span>
+                            </p>
+
+                            <p>}</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="floating-badge badge-one">
+
+                        <i class="fa-brands fa-react"></i>
+
+                        React
+
+                    </div>
+
+
+                    <div class="floating-badge badge-two">
+
+                        <i class="fa-brands fa-python"></i>
+
+                        Python
+
+                    </div>
+
+
+                    <div class="floating-badge badge-three">
+
+                        <i class="fa-solid fa-brain"></i>
+
+                        AI / ML
+
+                    </div>
+
+                </div>
+                     
+            </div>
+            <div class="scroll-indicator" aria-hidden="true">
+                <span>SCROLL</span>
+                <div class="scroll-line"></div>
+            </div>
+
+
+        </section>
+
+
+        <!-- =====================================================
+                              ABOUT
+        ====================================================== -->
+
+        <section class="section about-section" id="about">
+
+            <div class="container">
+
+                <div class="section-heading reveal orbit-heading">
+
+                    <span class="section-number">
+                        01
+                    </span>
+
+                    <div class="heading-text">
+
+                        <p class="section-label">
+                            ABOUT ME
+                        </p>
+
+                        <h2>
+                            Building ideas into
+                            <span class="gradient-text">
+                                real products.
+                            </span>
+                        </h2>
+
+                    </div>
+
+
+                    <!-- Orbit Decoration -->
+                    <div class="orbit-scene orbit-scene-about" aria-hidden="true">
+
+                        <div class="orbit-core orbit-core-mini">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+
+                        <div class="orbit-path path-five">
+                            <span class="orbit-icon">
+                                <i class="fa-solid fa-code"></i>
+                            </span>
+                        </div>
+
+                        <div class="orbit-path path-six">
+                            <span class="orbit-icon">
+                                <i class="fa-solid fa-rocket"></i>
+                            </span>
+                        </div>
+
+                        <div class="orbit-path path-seven">
+                            <span class="orbit-icon">
+                                <i class="fa-solid fa-diagram-project"></i>
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about-grid">
+
+
+                    <div class="about-content reveal">
+
+                        <p class="about-lead">
+                            I build full-stack web applications and AI-powered software using 
+                            React, Python, Flask, Java, SQL, MongoDB, and Machine Learning. I enjoy 
+                            designing scalable solutions, developing REST APIs, and turning complex 
+                            ideas into practical applications.
+                        </p>
+                        <p>
+                            Through two internships and multiple end-to-end projects, I've worked 
+                            across the complete software development lifecycle—from system design 
+                            and backend development to frontend implementation, database design, 
+                            testing, deployment, and version control. I'm currently seeking 
+                            Software Engineer or Full-Stack Developer opportunities where I can 
+                            build reliable, production-ready software while continuously expanding 
+                            my technical expertise.
+                        </p>
+
+                    </div>
+
+
+                    <div class="stats-grid reveal">
+
+                        <div class="stat-card">
+
+                            <span
+                                class="stat-number"
+                                data-target="4"
+                            >
+                                0
+                            </span>
+
+                            <span class="stat-plus">+</span>
+
+                            <p>Projects Built</p>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <span
+                                class="stat-number"
+                                data-target="2"
+                            >
+                                0
+                            </span>
+
+                            <span class="stat-plus"></span>
+
+                            <p>Internships</p>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <span
+                                class="stat-number"
+                                data-target="5"
+                            >
+                                0
+                            </span>
+
+                            <span class="stat-plus">+</span>
+
+                            <p>Core Technologies</p>
+
+                        </div>
+
+
+                        <div class="stat-card">
+
+                            <span
+                                class="stat-number"
+                                data-target="100"
+                            >
+                                0
+                            </span>
+
+                            <span class="stat-plus">%</span>
+
+                            <p>Ready to Learn</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="section-scroll-divider" aria-hidden="true">
+                <span>SCROLL</span>
+                <div class="scroll-line">
+                </div>
+            </div>
+
+        </section>
+
+
+
+
+        <!-- =====================================================
+                          WHAT I BRING
+        ====================================================== -->
+
+        <section class="section qualities-section">
+
+            <div class="container">
+
+                <div class="section-heading reveal orbit-heading">
+
+                    <span class="section-number">
+                        02
+                    </span>
+
+                    <div class="heading-text">
+
+                        <p class="section-label">
+                            WHAT I BRING
+                        </p>
+
+                        <h2>
+                            More than just
+                            <span class="gradient-text">
+                                writing code.
+                            </span>
+                        </h2>
+
+                    </div>
+
+
+                    <!-- Orbit Decoration -->
+                    <div class="orbit-scene orbit-scene-qualities" aria-hidden="true">
+
+                        <div class="orbit-core orbit-core-mini">
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+
+                        <div class="orbit-path path-five">
+                            <span class="orbit-icon">
+                                <i class="fa-solid fa-puzzle-piece"></i>
+                            </span>
+                        </div>
+
+                        <div class="orbit-path path-six">
+                            <span class="orbit-icon">
+                                <i class="fa-solid fa-comments"></i>
+                            </span>
+                        </div>
+
+                        <div class="orbit-path path-seven">
+                            <span class="orbit-icon">
+                                <i class="fa-solid fa-people-group"></i>
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="qualities-grid">
+
+
+                    <article class="quality-card reveal">
+
+                        <div class="quality-icon">
+
+                            <i class="fa-solid fa-layer-group"></i>
+
+                        </div>
+
+                        <h3>
+                            Full-Stack Development
+                        </h3>
+
+                        <p>
+
+                            Building responsive interfaces and connecting
+                            them with scalable backend APIs and databases.
+
+                        </p>
+
+                        <span class="quality-proof">
+                            4+ full-stack apps shipped with React,
+                            Flask &amp; Java
+                        </span>
+
+                    </article>
+
+
+                    <article class="quality-card reveal">
+
+                        <div class="quality-icon">
+
+                            <i class="fa-solid fa-brain"></i>
+
+                        </div>
+
+                        <h3>
+                            AI & ML Integration
+                        </h3>
+
+                        <p>
+
+                            Working with machine learning workflows,
+                            preprocessing pipelines and deep-learning
+                            models for practical applications.
+
+                        </p>
+
+                        <span class="quality-proof">
+                            Built an EfficientNet-based MRI classifier
+                            for NeuroWeb
+                        </span>
+
+                    </article>
+
+
+                    <article class="quality-card reveal">
+
+                        <div class="quality-icon">
+
+                            <i class="fa-solid fa-puzzle-piece"></i>
+
+                        </div>
+
+                        <h3>
+                            Problem Solving
+                        </h3>
+
+                        <p>
+
+                            Breaking complex problems into smaller,
+                            manageable components and implementing
+                            practical solutions.
+
+                        </p>
+
+                        <span class="quality-proof">
+                            Designed a duplicate-vote-safe voting
+                            system from scratch
+                        </span>
+
+                    </article>
+
+
+                    <article class="quality-card reveal">
+
+                        <div class="quality-icon">
+
+                            <i class="fa-solid fa-rocket"></i>
+
+                        </div>
+
+                        <h3>
+                            From Idea to Deployment
+                        </h3>
+
+                        <p>
+
+                            Comfortable working across development,
+                            testing, version control, containerization
+                            and deployment workflows.
+
+                        </p>
+
+                        <span class="quality-proof">
+                            Dockerized and deployed NeuroWeb to
+                            production on Render
+                        </span>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+            <div class="section-scroll-divider" aria-hidden="true">
+                <span>SCROLL</span>
+                <div class="scroll-line">
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+                              SKILLS
+        ====================================================== -->
+
+        <section class="section skills-section" id="skills">
+
+            <div class="container">
+
+                <div class="section-heading reveal orbit-heading">
+
+                    <span class="section-number">
+                        03
+                    </span>
+
+                    <div class="heading-text">
+
+                        <p class="section-label">
+                            TECH STACK
+                        </p>
+
+                        <h2>
+                            Tools I use to
+                            <span class="gradient-text">
+                                create.
+                            </span>
+                        </h2>
+
+                    </div>
+
+
+                    <!-- Secondary Orbit Decoration -->
+                    <div class="orbit-scene orbit-scene-secondary" aria-hidden="true">
+
+                        <div class="orbit-core orbit-core-mini">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+
+                        <div class="orbit-path path-five">
+                            <span class="orbit-icon">
+                                <i class="fa-brands fa-node-js"></i>
+                            </span>
+                        </div>
+
+                        <div class="orbit-path path-six">
+                            <span class="orbit-icon">
+                                <i class="fa-solid fa-database"></i>
+                            </span>
+                        </div>
+
+                        <div class="orbit-path path-seven">
+                            <span class="orbit-icon">
+                                <i class="fa-brands fa-docker"></i>
+                            </span>
+                        </div>
+
+                        <div class="orbit-path path-eight">
+                            <span class="orbit-icon">
+                                <i class="fa-solid fa-cloud"></i>
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="skills-container">
+
+
+                    <div class="skill-category reveal">
+
+                        <h3>
+                            Languages
+                        </h3>
+
+                        <div class="skill-legend">
+                            <span class="legend-item"><i class="dot dot-expert"></i>Advanced</span>
+                            <span class="legend-item"><i class="dot dot-mid"></i>Intermediate</span>
+                            <span class="legend-item"><i class="dot dot-basic"></i>Familiar</span>
+                        </div>
+
+                        <div class="skill-list">
+
+                            <span class="lvl-expert">
+                                <i class="fa-brands fa-python"></i>
+                                Python
+                            </span>
+
+                            <span class="lvl-mid">
+                                <i class="fa-brands fa-java"></i>
+                                Java
+                            </span>
+
+                            <span class="lvl-basic">
+                                C++
+                            </span>
+
+                            <span class="lvl-basic">
+                                C
+                            </span>
+
+                            <span class="lvl-mid">
+                                SQL
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-category reveal">
+
+                        <h3>
+                            Web Development
+                        </h3>
+
+                        <div class="skill-list">
+
+                            <span class="lvl-expert">
+                                <i class="fa-brands fa-react"></i>
+                                React.js
+                            </span>
+
+                            <span class="lvl-expert">
+                                <i class="fa-brands fa-html5"></i>
+                                HTML5
+                            </span>
+
+                            <span class="lvl-expert">
+                                <i class="fa-brands fa-css3-alt"></i>
+                                CSS3
+                            </span>
+
+                            <span class="lvl-expert">
+                                Flask
+                            </span>
+
+                            <span class="lvl-mid">
+                                REST APIs
+                            </span>
+
+                            <span class="lvl-mid">
+                                JWT Authentication
+                            </span>
+
+                            <span class="lvl-mid">
+                                Responsive Design
+                            </span>
+
+                            <span class="lvl-basic">
+                                Bootstrap
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-category reveal">
+
+                        <h3>
+                            AI & Data
+                        </h3>
+
+                        <div class="skill-list">
+
+                            <span class="lvl-mid">
+                                CNN
+                            </span>
+
+                            <span class="lvl-mid">
+                                EfficientNet
+                            </span>
+
+                            <span class="lvl-mid">
+                                TensorFlow
+                            </span>
+
+                            <span class="lvl-expert">
+                                Data Preprocessing
+                            </span>
+
+                            <span class="lvl-expert">
+                                Power BI
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="skill-category reveal">
+
+                        <h3>
+                            Database & Tools
+                        </h3>
+
+                        <div class="skill-list">
+
+                            <span class="lvl-expert">
+                                MySQL
+                            </span>
+
+                            <span class="lvl-mid">
+                                MongoDB
+                            </span>
+
+                            <span class="lvl-expert">
+                                <i class="fa-brands fa-git-alt"></i>
+                                Git
+                            </span>
+
+                            <span class="lvl-expert">
+                                <i class="fa-brands fa-github"></i>
+                                GitHub
+                            </span>
+
+                            <span class="lvl-mid">
+                                Docker
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="skill-category reveal">
+
+                        <h3>
+                            Deployment & DevOps
+                        </h3>
+
+                        <div class="skill-list">
+
+                            <span class="lvl-mid">
+                                GitHub Actions
+                            </span>
+
+                            <span class="lvl-basic">
+                                Linux
+                            </span>
+
+                            <span class="lvl-expert">
+                                Vercel
+                            </span>
+
+                            <span class="lvl-mid">
+                                Render
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="section-scroll-divider" aria-hidden="true">
+                <span>SCROLL</span>
+                <div class="scroll-line">
+                </div>
+            </div>
+
+        </section>
+
+        <!-- =====================================================
+                          FEATURED PROJECT
+        ====================================================== -->
+
+        <section class="section projects-section" id="projects">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <span class="section-number">
+                        04
+                    </span>
+
+                    <div>
+
+                        <p class="section-label">
+                            SELECTED WORK
+                        </p>
+
+                        <h2>
+                            Projects that
+                            <span class="gradient-text">
+                                solve problems.
+                            </span>
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <!-- NeuroWeb -->
+
+                <article class="featured-project reveal tilt-card ">
+
+
+                    <div class="project-visual">
+
+                        <div class="browser-window">
+
+                            <div class="browser-bar">
+
+                                <div class="browser-dots">
+
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+
+                                </div>
+
+                                <div class="browser-url">
+
+                                    neuroweb-platform.onrender.com
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="project-placeholder flip-scene">
+
+                                <!--
+                                    Add your app screenshot at
+                                    assets/projects/neuroweb.png
+                                    On hover, the card flips over
+                                    (3D flip) to reveal it.
+                                -->
+                                <div class="flip-inner">
+
+                                    <div class="flip-face flip-front">
+
+                                        <i class="fa-solid fa-brain"></i>
+
+                                        <span>
+                                            NeuroWeb
+                                        </span>
+
+                                    </div>
+
+                                    <div class="flip-face flip-back">
+
+                                        <div class="flip-back-hint">
+                                            <i class="fa-solid fa-image"></i>
+                                        </div>
+
+                                        <img
+                                            src="assets/projects/neuroweb.png"
+                                            alt="NeuroWeb application screenshot"
+                                            onload="this.closest('.flip-scene').classList.add('has-image')"
+                                            onerror="this.remove()"
+                                        >
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="project-content">
+
+                        <div class="featured-top-row">
+
+                            <div class="project-icon">
+
+                                <i class="fa-solid fa-brain"></i>
+
+                            </div>
+
+                            <span class="featured-label">
+                                FEATURED PROJECT
+                            </span>
+
+                        </div>
+
+
+                        <h3>
+                            NeuroWeb
+                        </h3>
+
+
+                        <h4>
+                            AI-Based Alzheimer's Early Detection Platform
+                        </h4>
+
+
+                        <p>
+
+                            <strong>Problem:</strong>
+                            Alzheimer's is often diagnosed late, when
+                            treatment options are limited.
+
+                        </p>
+
+
+                        <p>
+
+                            <strong>Solution:</strong>
+                            NeuroWeb combines behavioral cognitive
+                            assessments with MRI-based deep-learning
+                            analysis (EfficientNet) to support earlier
+                            risk screening, wrapped in a full-stack
+                            patient monitoring platform built with
+                            React, Flask and TensorFlow.
+
+                        </p>
+
+
+                        <!--
+                            TODO: replace the placeholders below with
+                            your real numbers (model accuracy, dataset
+                            size, response time, etc.) before publishing.
+                        -->
+                        <div class="project-metrics">
+
+                            <div class="metric-chip">
+                                <span class="metric-value">2-Stage</span>
+                                <span class="metric-label">Screening Pipeline</span>
+                            </div>
+
+                            <div class="metric-chip">
+                                <span class="metric-value">EfficientNet</span>
+                                <span class="metric-label">MRI Classification Model</span>
+                            </div>
+
+                            <div class="metric-chip">
+                                <span class="metric-value">Dockerized</span>
+                                <span class="metric-label">Production Deployment</span>
+                            </div>
+
+                            <div class="metric-chip">
+                                <span class="metric-value">93.8%</span>
+                                <span class="metric-label">Model Accuracy</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-highlights">
+
+                            <div>
+
+                                <i class="fa-solid fa-check"></i>
+
+                                Behavioral cognitive screening module
+
+                            </div>
+
+
+                            <div>
+
+                                <i class="fa-solid fa-check"></i>
+
+                                EfficientNet-based MRI classification
+
+                            </div>
+
+
+                            <div>
+
+                                <i class="fa-solid fa-check"></i>
+
+                                Full-stack patient monitoring platform
+
+                            </div>
+
+
+                            <div>
+
+                                <i class="fa-solid fa-check"></i>
+
+                                Containerized deployment workflow
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-tech">
+
+                            <span>React</span>
+                            <span>Python</span>
+                            <span>Flask</span>
+                            <span>TensorFlow</span>
+                            <span>MongoDB</span>
+                            <span>Docker</span>
+
+                        </div>
+
+
+                        <div class="project-links">
+
+                            <a
+                                href="https://neuroweb-frontend.onrender.com/"
+                                target="_blank"
+                                class="primary-button"
+                            >
+
+                                Live Project
+
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                            </a>
+
+
+                            <a
+                                href="https://github.com/Siddhi11-hash/neuroweb/"
+                                target="_blank"
+                                class="project-github"
+                            >
+
+                                <i class="fa-brands fa-github"></i>
+
+                                Source Code
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Other Projects -->
+
+                <div class="projects-grid">
+
+
+                    <article class="project-card reveal">
+
+                        <!--
+                            Add your app screenshot at
+                            assets/projects/pinit.png
+                            On hover, the poster flips over
+                            (3D flip) to reveal it.
+                        -->
+                        <div class="flip-scene">
+
+                            <div class="flip-inner">
+
+                                <div class="flip-face flip-front flip-front-pinit">
+
+                                    <i class="fa-solid fa-graduation-cap"></i>
+
+                                    <span>
+                                        PinIt
+                                    </span>
+
+                                </div>
+
+                                <div class="flip-face flip-back">
+
+                                    <div class="flip-back-hint">
+                                        <i class="fa-solid fa-image"></i>
+                                        <span>Add screenshot</span>
+                                    </div>
+
+                                    <img
+                                        src="assets/projects/pinit.png"
+                                        alt="PinIt application screenshot"
+                                        onload="this.closest('.flip-scene').classList.add('has-image')"
+                                        onerror="this.remove()"
+                                    >
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-card-top">
+
+                            <div class="project-icon">
+
+                                <i class="fa-solid fa-graduation-cap"></i>
+
+                            </div>
+
+                            <i class="fa-solid fa-arrow-up-right-from-square project-arrow"></i>
+
+                        </div>
+
+
+                        <span class="project-type">
+                            WEB APPLICATION
+                        </span>
+
+
+                        <h3>
+                            PinIt
+                        </h3>
+
+
+                        <p>
+
+                            A centralized academic resource-sharing
+                            platform designed for students to access
+                            notices and educational materials.
+
+                        </p>
+
+                        <span class="card-impact">
+                            <i class="fa-solid fa-bolt"></i>
+                            Replaced scattered notice-boards with a
+                            single searchable hub
+                        </span>
+
+
+                        <div class="project-tech">
+
+                            <span>React.js</span>
+                            <span>Bootstrap</span>
+                            <span>CSS</span>
+
+                        </div>
+
+
+                        <div class="project-links card-links">
+
+                            <a
+                                href="https://pinit-beige.vercel.app/"
+                                target="_blank"
+                                class="card-live-link"
+                            >
+                                Live Link
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+
+                            <a
+                                href="https://github.com/Siddhi11-hash/pinit/"
+                                target="_blank"
+                                class="project-github"
+                            >
+                                <i class="fa-brands fa-github"></i>
+                                Code
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="project-card reveal">
+
+                        <!--
+                            Add your app screenshot at
+                            assets/projects/voting-system.png
+                            It will fade/zoom into view on hover.
+                        -->
+                        <div class="flip-scene">
+
+                            <div class="flip-inner">
+
+                                <div class="flip-face flip-front flip-front-voting">
+
+                                    <i class="fa-solid fa-check-to-slot"></i>
+
+                                    <span>
+                                        Voting
+                                    </span>
+
+                                </div>
+
+                                <div class="flip-face flip-back">
+
+                                    <div class="flip-back-hint">
+                                        <i class="fa-solid fa-image"></i>
+                                        <span>Add screenshot</span>
+                                    </div>
+
+                                    <img
+                                        src="assets/projects/ovs.png"
+                                        alt="Online Voting System application screenshot"
+                                        onload="this.closest('.flip-scene').classList.add('has-image')"
+                                        onerror="this.remove()"
+                                    >
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-card-top">
+
+                            <div class="project-icon">
+
+                                <i class="fa-solid fa-check-to-slot"></i>
+
+                            </div>
+
+                            <i class="fa-solid fa-arrow-up-right-from-square project-arrow"></i>
+
+                        </div>
+
+
+                        <span class="project-type">
+                            BACKEND SYSTEM
+                        </span>
+
+
+                        <h3>
+                            Online Voting System
+                        </h3>
+
+
+                        <p>
+
+                            A voting application implementing
+                            authentication, vote validation and
+                            database-backed duplicate-vote prevention.
+
+                        </p>
+
+                        <span class="card-impact">
+                            <i class="fa-solid fa-bolt"></i>
+                            Enforced one-vote-per-user integrity at
+                            the database layer
+                        </span>
+
+
+                        <div class="project-tech">
+
+                            <span>Java</span>
+                            <span>MySQL</span>
+                            <span>Authentication</span>
+
+                        </div>
+
+
+                        <div class="project-links card-links">
+
+                            <a
+                                href="https://online-voting-system-zwko.onrender.com"
+                                target="_blank"
+                                class="card-live-link"
+                            >
+                                Live Link
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+
+                            <a
+                                href="https://github.com/Siddhi11-hash/online_voting_system/"
+                                target="_blank"
+                                class="project-github"
+                            >
+                                <i class="fa-brands fa-github"></i>
+                                Code
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <div class="more-projects-cta reveal">
+
+                    <a href="more-projects.html" class="more-projects-button">
+
+                        <span>More Projects</span>
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="section-scroll-divider" aria-hidden="true">
+                <span>SCROLL</span>
+                <div class="scroll-line">
+                </div>
+            </div>
+
+        </section>
+
+        <!-- =====================================================
+                            EXPERIENCE
+        ====================================================== -->
+
+        <section
+            class="section experience-section"
+            id="experience"
+        >
+
+            <div class="container">
+
+                <div class="section-heading reveal orbit-heading">
+
+                    <span class="section-number">
+                        05
+                    </span>
+
+                    <div class="heading-text">
+
+                        <p class="section-label">
+                            EXPERIENCE
+                        </p>
+
+                        <h2>
+                            Learning through
+                            <span class="gradient-text">
+                                experience.
+                            </span>
+                        </h2>
+
+                    </div>
+
+
+                    <!-- Orbit Decoration -->
+                    <div class="orbit-scene orbit-scene-experience" aria-hidden="true">
+
+                        <div class="orbit-core orbit-core-mini">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+
+                        <div class="orbit-path path-five">
+                            <span class="orbit-icon">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </span>
+                        </div>
+
+                        <div class="orbit-path path-six">
+                            <span class="orbit-icon">
+                                <i class="fa-solid fa-users"></i>
+                            </span>
+                        </div>
+
+                        <div class="orbit-path path-seven">
+                            <span class="orbit-icon">
+                                <i class="fa-solid fa-laptop-code"></i>
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline">
+
+
+                    <div class="timeline-item reveal">
+
+                        <div class="timeline-marker"></div>
+
+                        <div class="timeline-content">
+
+                            <span class="timeline-type">
+                                INTERNSHIP
+                            </span>
+
+                            <h3>
+                                Artificial Intelligence Intern
+                            </h3>
+
+                            <h4>
+                                NoviTech R&D Private Limited
+                            </h4>
+
+                            <ul class="timeline-list">
+
+                                <li>Preprocessed and cleaned datasets for machine-learning model training</li>
+                                <li>Built and evaluated ML model prototypes for practical AI applications</li>
+                                <li>Documented model development workflows for the team</li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="timeline-item reveal">
+
+                        <div class="timeline-marker"></div>
+
+                        <div class="timeline-content">
+
+                            <span class="timeline-type">
+                                INTERNSHIP
+                            </span>
+
+                            <h3>
+                                Data Analytics & Power BI Intern
+                            </h3>
+
+                            <h4>
+                                NoviTech R&D Private Limited
+                            </h4>
+
+                            <ul class="timeline-list">
+
+                                <li>Built Power BI dashboards from raw business datasets</li>
+                                <li>Cleaned and transformed data using Excel and Python</li>
+                                <li>Improved reporting workflows for faster decision-making</li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="section-scroll-divider" aria-hidden="true">
+                <span>SCROLL</span>
+                <div class="scroll-line">
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+                    ACHIEVEMENTS & CERTIFICATIONS
+        ====================================================== -->
+
+        <section class="section achievements-section" id="achievements">
+
+            <div class="container">
+
+                <div class="section-heading reveal orbit-heading">
+
+                    <span class="section-number">
+                        06
+                    </span>
+
+                    <div class="heading-text">
+
+                        <p class="section-label">
+                            CERTIFICATIONS &amp; ACHIEVEMENTS
+                        </p>
+
+                        <h2>
+                            Recognition &amp;
+                            <span class="gradient-text">
+                                continuous learning.
+                            </span>
+                        </h2>
+
+                    </div>
+
+
+                    <!-- Orbit Decoration -->
+                    <div class="orbit-scene orbit-scene-achievements" aria-hidden="true">
+
+                        <div class="orbit-core orbit-core-mini">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+
+                        <div class="orbit-path path-five">
+                            <span class="orbit-icon">
+                                <i class="fa-solid fa-trophy"></i>
+                            </span>
+                        </div>
+
+                        <div class="orbit-path path-six">
+                            <span class="orbit-icon">
+                                <i class="fa-solid fa-medal"></i>
+                            </span>
+                        </div>
+
+                        <div class="orbit-path path-seven">
+                            <span class="orbit-icon">
+                                <i class="fa-solid fa-certificate"></i>
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!--
+                    TODO: add your real certifications, hackathons and
+                    academic awards here. Each card below is a template —
+                    duplicate the block and edit the icon, title and issuer.
+                -->
+                <div class="achievements-grid">
+
+                    <div class="achievement-card reveal">
+
+                        <div class="achievement-icon">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+
+                        <h3>AI Internship Certification</h3>
+                        <p>NoviTech R&amp;D Private Limited</p>
+
+                    </div>
+
+                    <div class="achievement-card reveal">
+
+                        <div class="achievement-icon">
+                            <i class="fa-solid fa-certificate"></i>
+                        </div>
+
+                        <h3>Data Analytics &amp; Power BI Certification</h3>
+                        <p>NoviTech R&amp;D Private Limited</p>
+
+                    </div>
+
+                    <div class="achievement-card achievement-placeholder reveal">
+
+                        <div class="achievement-icon">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+
+                        <h3>Add another certification</h3>
+                        <p>e.g. AWS, IBM, Cisco or a hackathon result</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="section-scroll-divider" aria-hidden="true">
+                <span>SCROLL</span>
+                <div class="scroll-line">
+                </div>
+            </div>
+
+        </section>
+
+        <!-- =====================================================
+                              EDUCATION
+        ====================================================== -->
+
+        <section class="section education-section">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <span class="section-number">
+                        07
+                    </span>
+
+                    <div>
+
+                        <p class="section-label">
+                            EDUCATION
+                        </p>
+
+                        <h2>
+                            My academic
+                            <span class="gradient-text">
+                                foundation.
+                            </span>
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="education-card reveal">
+
+                    <div class="education-icon">
+
+                        <i class="fa-solid fa-graduation-cap"></i>
+
+                    </div>
+
+
+                    <div class="education-content">
+
+                        <span class="education-year">
+                            2022 — 2026
+                        </span>
+
+                        <h3>
+                            Bachelor of Engineering
+                        </h3>
+
+                        <h4>
+                            Information Technology
+                        </h4>
+
+                        <p>
+                            A.P. Shah Institute of Technology
+                        </p>
+
+                        <p class="education-coursework">
+                            Relevant coursework: Data Structures &amp;
+                            Algorithms, DBMS, Machine Learning, Web
+                            Technologies, Software Engineering
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="section-scroll-divider" aria-hidden="true">
+                <span>SCROLL</span>
+                <div class="scroll-line">
+                </div>
+            </div>
+
+        </section>
+
+        
+
+
+        <!-- =====================================================
+                              CONTACT
+        ====================================================== -->
+
+        <section class="section contact-section" id="contact">
+            <div class="container">
+                <div class="contact-box reveal">
+<div class="orbit-scene orbit-scene-contact" aria-hidden="true">
+
+                        <div class="orbit-core orbit-core-mini">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </div>
+
+                        <div class="orbit-path path-five">
+                            <span class="orbit-icon">
+                                <i class="fa-solid fa-envelope"></i>
+                            </span>
+                        </div>
+
+                        <div class="orbit-path path-six">
+                            <span class="orbit-icon">
+                                <i class="fa-solid fa-comments"></i>
+                            </span>
+                        </div>
+
+                        <div class="orbit-path path-seven">
+                            <span class="orbit-icon">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </span>
+                        </div>
+
+                    </div>
+                    <p class="section-label">LET'S CONNECT</p>
+                    <h2>
+                        Have an opportunity or
+                        <span class="gradient-text">project in mind?</span>
+                    </h2>
+                    <p>
+                        I'm currently open to software development opportunities and collaborations.
+                    </p>
+
+                    <div class="contact-socials contact-socials-icons" aria-label="Contact links">
+                        <a href="https://github.com/Siddhi11-hash" target="_blank"
+                           rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/siddhi-girkar-11v11g2003" target="_blank"
+                           rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="assets/Siddhi_Girkar_Resume.pdf" target="_blank"
+                           rel="noopener noreferrer" aria-label="Resume" title="Resume">
+                            <i class="fa-solid fa-file-lines"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =====================================================
+                              FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <div class="container footer-content">
+
+            <p>
+                Designed & built by Siddhi Girkar
+            </p>
+
+            <p>
+                © 2026
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Back To Top -->
+
+    <button
+        class="back-to-top"
+        id="backToTop"
+        aria-label="Back to top"
+    >
+
+        <i class="fa-solid fa-arrow-up"></i>
+
+    </button>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

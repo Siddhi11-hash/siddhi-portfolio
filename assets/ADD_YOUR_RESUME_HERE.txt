@@ -1,0 +1,5 @@
+Add your resume PDF to this folder and name it:
+Siddhi_Girkar_Resume.pdf
+
+The site links to assets/Siddhi_Girkar_Resume.pdf from the navbar,
+hero "Download Resume" button, and the Contact section.
