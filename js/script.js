@@ -715,24 +715,25 @@ interactiveCards.forEach(
 
 updateActiveNavigation();
 
-/* Touch/mobile project-card flip */
-if (window.matchMedia("(hover: none), (pointer: coarse)").matches) {
-    document.querySelectorAll(".project-card, .featured-project").forEach(card => {
-        const scene = card.querySelector(".flip-scene");
-        if (!scene) return;
+/* Mobile project screenshot flip: scroll-driven only (no tap/click). */
+if (window.matchMedia("(max-width: 768px)").matches) {
+    const projectScenes = document.querySelectorAll("#projects .flip-scene");
 
-        scene.setAttribute("role", "button");
-        scene.setAttribute("tabindex", "0");
-        scene.setAttribute("aria-label", "Flip project preview");
+    // Remove any legacy card flip state so taps cannot leave a preview flipped.
+    document.querySelectorAll("#projects .project-card, #projects .featured-project")
+        .forEach(card => card.classList.remove("is-flipped"));
 
-        const toggleFlip = () => card.classList.toggle("is-flipped");
-
-        scene.addEventListener("click", toggleFlip, { passive: true });
-        scene.addEventListener("keydown", event => {
-            if (event.key === "Enter" || event.key === " ") {
-                event.preventDefault();
-                toggleFlip();
-            }
+    const projectFlipObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            // Flip while the screenshot is meaningfully in view; restore as it leaves.
+            entry.target.classList.toggle("is-scroll-flipped", entry.isIntersecting);
         });
+    }, { root: null, rootMargin: "-18% 0px -18% 0px", threshold: 0.38 });
+
+    projectScenes.forEach(scene => {
+        scene.removeAttribute("role");
+        scene.removeAttribute("tabindex");
+        scene.removeAttribute("aria-label");
+        projectFlipObserver.observe(scene);
     });
 }

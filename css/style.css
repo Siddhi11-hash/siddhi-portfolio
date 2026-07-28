@@ -5559,3 +5559,41 @@ button {
         opacity: .92 !important;
     }
 }
+
+/* =========================================================
+   MOBILE-ONLY SCROLL + PERFORMANCE FIX
+   Desktop/tablet (>768px) intentionally unchanged.
+   ========================================================= */
+@media (max-width: 768px) {
+    html, body {
+        scroll-behavior: auto !important;
+        scroll-snap-type: none !important;
+        overscroll-behavior-y: auto;
+    }
+
+    section, .section, #projects, .project-card, .featured-project {
+        scroll-snap-align: none !important;
+        scroll-snap-stop: normal !important;
+    }
+
+    /* Keep project cards static; only the screenshot face flips. */
+    #projects .flip-inner {
+        transition: transform .52s cubic-bezier(.22,.61,.36,1) !important;
+        will-change: auto !important;
+    }
+
+    #projects .flip-scene.is-scroll-flipped .flip-inner {
+        transform: rotateY(180deg) !important;
+    }
+
+    /* Old tap/click state must never control the mobile flip. */
+    #projects .project-card.is-flipped .flip-inner,
+    #projects .featured-project.is-flipped .flip-inner {
+        transform: rotateY(0deg) !important;
+    }
+
+    /* Reduce expensive compositing on phone while preserving visuals. */
+    .starfield { will-change: auto !important; }
+    .project-card, .featured-project, .skill-category, .quality-card,
+    .achievement-card, .education-card { will-change: auto !important; }
+}
